@@ -35,7 +35,7 @@
                 align-items: space;
                 flex-direction: column;
                 justify-content: center;
-                height: 100px;
+                height: 80px;
                 text-align: center;
                 p{
                     margin: 0;
@@ -57,6 +57,9 @@
                             font-size: 25px;
                         }
                     }
+                }
+                .dropdown-menu{
+                 padding: 0;
                 }
 
                 @media screen and (max-width:900px) {

@@ -1,0 +1,19 @@
+<div class="login-container">
+    <h1>Ingresa a tu cuenta</h1>
+    <form [formGroup]="loginForm">
+        <div class="form-controller">
+            <label>Usuario</label>
+            <input formControlName="user" placeholder="Usuario" type="email">
+        </div>
+        <div class="form-controller">
+            <label>Contraseña</label>
+            <input formControlName="password" placeholder="Contraseña" type="password">
+        </div>
+        <div class="form-controller">
+            <button  >Ingresar</button>
+        </div>
+        <div class="form-controller">
+            <button type="button"  (click)="ActivateRegister($event)">Registrarse</button>
+        </div>
+    </form>
+</div>

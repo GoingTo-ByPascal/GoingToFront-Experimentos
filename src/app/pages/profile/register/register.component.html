@@ -1,0 +1,27 @@
+<div class="register-container">
+    <form [formGroup]="registerForm">
+        <h1>Registra tu cuenta</h1>
+        <div class="form-controller">
+            <label>Usuario</label>
+            <input formControlName="user" placeholder="Usuario" type="email">
+        </div>
+        <div class="form-controller">
+            <label>Nombre</label>
+            <input formControlName="name" placeholder="Nombre" type="text">
+        </div>
+        <div class="form-controller">
+            <label>Contraseña</label>
+            <input formControlName="password" placeholder="Contraseña" type="password">
+        </div>
+        <div class="form-controller">
+            <label>Repetir Contraseña</label>
+            <input formControlName="repeat-password" placeholder="Repetir Contraseña" type="password">
+        </div>
+        <div class="form-controller">
+            <button>Registrarse</button>
+        </div>
+        <div class="form-controller">
+            <button (click)="ActivateLogin($event)" >Cancelar Registro</button>
+        </div>
+    </form>
+</div>

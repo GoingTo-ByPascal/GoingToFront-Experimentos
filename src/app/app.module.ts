@@ -12,6 +12,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularMaterialModule } from './material.module';
 import { PlaceItemComponent } from './pages/place-item/place-item.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { LoginComponent } from './pages/profile/login/login.component';
+import { RegisterComponent } from './pages/profile/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,11 @@ import { PlaceItemComponent } from './pages/place-item/place-item.component';
     ExploreComponent,
     SearchComponent,
     PlaceItemComponent,
-    RightDrawerComponent
+    RightDrawerComponent,
+    ProfileComponent,
+    LoginComponent,
+    RegisterComponent
+  
   ],
   imports: [
     BrowserModule,

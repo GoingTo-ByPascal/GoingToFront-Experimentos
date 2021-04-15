@@ -34,6 +34,124 @@ $buttonColor:#003055;
         font-family: 'Varela Round', sans-serif;
     }
 }
+
+@mixin form-controller($colums){
+
+
+
+    @each $columname,$props in $colums{
+
+        .form-controller{
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+ 
+            label{
+                width: 100%;
+                font-family: 'Varela Round', sans-serif;
+                height: 10px;
+                margin-bottom: 15px;
+                color:black;
+                @if map-has-key($props,'color') 
+                    {
+                        border-color: map-get($props, 'color');
+                    }
+            }
+            input{
+                width: 100%;
+                height: 60px;
+                padding: 5px 5px 5px 10px;
+                color: black;
+                background-color: none;
+                border: 1px solid;
+                @if map-has-key($props, 'color') 
+                {
+                    border-color: map-get($props, 'color');
+                }
+                @if map-has-key($props, 'height') 
+                {
+                    height: map-get($props, 'height');
+                }
+                
+            }
+            select{
+                width: 100%;
+                height: 60px;
+                background-color: none;
+                border: 1px solid;
+                color: black;
+                @if map-has-key($props, 'color') 
+                {
+                    border-color: map-get($props, 'color');
+                }
+                @if map-has-key($props, 'height') 
+                {
+                    height: map-get($props, 'height');
+                }
+                
+    
+            }
+            textarea{
+                width: 100%;
+                height: 120px;
+                background-color: none;
+                border: 1px solid;
+                color: black;
+                @if map-has-key($props, 'color') 
+                {
+                    border-color: map-get($props, 'color');
+                }
+                @if map-has-key($props, 'height') 
+                {
+                    height: map-get($props, 'height');
+                }
+    
+            }
+        }
+
+    }
+ 
+
+    
+    }
+
+@mixin redButton{
+
+        button{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            position: relative;
+            background-color: $buttonColor;
+            border: 0;
+            color: #fff;
+            height: 40px;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-family: 'Varela Round', sans-serif;
+            transition: all 400ms ease;
+        }
+        button:hover{
+            transform: scale(1.05);
+            transition: all 400ms ease;
+            box-shadow: 0 6px 4px darkgray
+        }
+    
+        @media screen and (max-width:900px) {
+            button{
+                font-size: 12px;
+            }
+        }
+        
+    }
+    
 @mixin subtitle(){
     h2{
         font-family: 'Varela Round', sans-serif;

@@ -1,0 +1,19 @@
+@import 'src/assets/css/styles.scss';
+.login-container{
+    width: 380px;
+    height: 400px;
+    padding: 5%;
+    @include center();
+    @include title();
+    h1{
+        font-size: 2rem;
+    }
+    flex-direction: column;
+    form{
+        width: 100%;
+        @include form-controller( (
+            Properties: (color:black,height:40px)
+        ));
+        @include redButton();
+    }
+}

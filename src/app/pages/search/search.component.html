@@ -4,36 +4,65 @@
         <div class="country">
             <h1>Country</h1>
             <ul>
+
                 <ng-container *ngFor="let country of countries">
-                    <li (click)="getCities(country.id)" > <p>{{country.fullName}}</p></li>
+                    <li (click)="getCities(country.id)" (click)="getData(country.locatable.id)" > <p>{{country.fullName}}</p></li>
                 </ng-container>
             </ul>
         </div>
         <div class="city">
             <h1>City</h1>
             <ul>
-                <ng-container *ngFor="let city of cities">
-                    <li (click)="getPlaces(city.id)"  > <p>{{city.name}}</p></li>
+                <ng-container *ngIf="cities.length > 0;else noItems1">
+                    <ng-container *ngFor="let city of cities">
+                        <li (click)="getPlaces(city.id)"  > <p>{{city.name}}</p></li>
+                    </ng-container>
                 </ng-container>
+                 <ng-template #noItems1>
+                     <h2>Please select a country</h2>
+                 </ng-template>
             </ul>
             
         </div>
         <div class="place">
             <h1>Place</h1>
             <ul>
-                <ng-container *ngFor="let place of places">
-                    <li   > <p>{{place.name}}</p></li>
+                <ng-container *ngIf="places.length > 0;else noItems2">
+                    <ng-container *ngFor="let place of places">
+                        <li   > <p>{{place.name}}</p></li>
+                    </ng-container>
                 </ng-container>
+                <ng-template #noItems2>
+                    <h2>Please select a city</h2>
+                </ng-template>
             </ul>
         </div>
     </div>
     <div class="tabs">
-        <mat-tab-group>
-            <mat-tab label="Details"> Destination Details </mat-tab>
-            <mat-tab label="Components"> Destination Comments </mat-tab>
-            <mat-tab label="Tips"> Destination Tips</mat-tab>
-            <mat-tab label="Services"> Destination Services </mat-tab>
-
-          </mat-tab-group>
+        <div class="tab">
+            <h1>Tips</h1>
+            <ul *ngIf="tips.length > 0;else NoData">
+                <li *ngFor="let tip of tips">
+                    {{tip.text}}
+                    
+                </li>
+            </ul>
+            <ng-template #NoData>
+                <h2>Please select a Place to get info</h2>
+            </ng-template>
+        </div>
+        <div class="tab">
+            <h1>Reviews</h1>
+            <ul *ngIf="reviews.length > 0;else NoData">
+                <li *ngFor="let review of reviews">
+                    {{review.comment}}
+                    
+                </li>
+            </ul>
+            <ng-template #NoData>
+                <h2>Please select a Place to get info</h2>
+            </ng-template>
+        </div>
+        
     </div>
 </div>

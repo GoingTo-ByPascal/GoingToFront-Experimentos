@@ -69,6 +69,12 @@
                 li:hover{
                     transform: scale(1.4) translateX(20%);
                 }
+                @media screen and (max-width:600px) {
+                    li:hover{
+                        transform: scale(1) translateX(20%);
+
+                    }
+                }
             }
         }
         h1::after{
@@ -100,6 +106,7 @@
         }
         .tabs{
             width: 100%;
+            height: auto;
         }
     }
 }

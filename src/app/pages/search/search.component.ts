@@ -21,6 +21,7 @@ export class SearchComponent implements OnInit {
   cities: City[] = []
   places: Place[] = []
   reviews: Review[] = []
+  
   tips: any[] = []
   promos:any[] = []
   ngOnInit(): void {

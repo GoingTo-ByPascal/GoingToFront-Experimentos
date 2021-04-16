@@ -55,7 +55,7 @@
             <h1>Reviews</h1>
             <ul *ngIf="reviews.length > 0;else NoData">
                 <li *ngFor="let review of reviews">
-                    {{review.comment}}
+                    {{review.comment}} <app-stars [starsquantity]="review.stars"></app-stars>
                     
                 </li>
             </ul>

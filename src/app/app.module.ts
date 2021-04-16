@@ -16,6 +16,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/profile/login/login.component';
 import { RegisterComponent } from './pages/profile/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StarsComponent } from './pages/search/stars/stars.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     RightDrawerComponent,
     ProfileComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    StarsComponent
   
   ],
   imports: [

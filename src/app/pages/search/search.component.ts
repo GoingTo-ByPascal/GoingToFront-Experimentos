@@ -22,6 +22,7 @@ export class SearchComponent implements OnInit {
   places: Place[] = []
   reviews: Review[] = []
   tips: any[] = []
+  promos:any[] = []
   ngOnInit(): void {
     this.initialize();
   }
@@ -48,7 +49,13 @@ export class SearchComponent implements OnInit {
     }),
     this.locatableService.getTipsByLocatableId(locatableId).subscribe((response:any)=>{
       this.tips = response
-    }))
+    }),
+    this.locatableService.getPromoByLocatableId(locatableId).subscribe((response:any)=>{
+      this.promos = response
+      console.log(this.promos)
+    })
+    
+    )
   }
   
 }

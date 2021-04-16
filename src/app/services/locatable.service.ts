@@ -16,7 +16,9 @@ export class LocatableService {
     return this.http.get<Review[]>(`${this.URI}/${locatableId}/reviews`)
   }
   getTipsByLocatableId(locatableId:string){
-    return this.http.get<Review[]>(`${this.URI}/${locatableId}/tips`)
-
+    return this.http.get<any[]>(`${this.URI}/${locatableId}/tips`)
+  }
+  getPromoByLocatableId(locatableId:string){
+    return this.http.get<any[]>(`${environment.HOST_URL}/locatable/${locatableId}/promos`)
   }
 }

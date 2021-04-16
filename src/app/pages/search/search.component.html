@@ -63,6 +63,17 @@
                 <h2>Please select a Place to get info</h2>
             </ng-template>
         </div>
-        
+        <div class="tab">
+            <h1>Promos</h1>
+            <ul *ngIf="promos.length > 0;else NoData">
+                <li *ngFor="let promo of promos">
+                    {{promo.text | titlecase}}.  Descuento de {{promo.discount | percent}}
+                    
+                </li>
+            </ul>
+            <ng-template #NoData>
+                <h2>Please select a Place to get info</h2>
+            </ng-template>
+        </div>
     </div>
 </div>

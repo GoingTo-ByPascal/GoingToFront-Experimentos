@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { City } from 'src/app/model/City';
 import { Country } from 'src/app/model/Country';
@@ -16,7 +17,7 @@ import { LocatableService } from 'src/app/services/locatable.service';
 export class SearchComponent implements OnInit {
 
   Subscriptions: Array<Subscription> = []
-  constructor(private countryService:CountryService,private cityService:CityService,private locatableService:LocatableService) { }
+  constructor(private countryService:CountryService,private cityService:CityService,private locatableService:LocatableService,private router:Router) { }
   countries: Country[] = []
   cities: City[] = []
   places: Place[] = []
@@ -50,13 +51,18 @@ export class SearchComponent implements OnInit {
     }),
     this.locatableService.getTipsByLocatableId(locatableId).subscribe((response:any)=>{
       this.tips = response
+
     }),
     this.locatableService.getPromoByLocatableId(locatableId).subscribe((response:any)=>{
       this.promos = response
-      console.log(this.promos)
+
     })
     
     )
   }
-  
+  redirectTo(uri:string,param:string){
+
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate([uri,param]));
+ }
 }

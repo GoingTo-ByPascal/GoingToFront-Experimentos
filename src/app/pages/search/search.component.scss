@@ -61,6 +61,7 @@
         justify-content: flex-start;
         @include subtitle();
         .tab{
+            @include button();
             ul{
                 li{
                     transform: scale(1) ;
@@ -69,6 +70,15 @@
                 li:hover{
                     transform: scale(1.4) translateX(20%);
                 }
+
+                li.button{
+                    list-style-type: none;
+
+                }
+                li.button:hover{
+                    transform: scale(1) translateX(0%);
+                }
+
                 @media screen and (max-width:600px) {
                     li:hover{
                         transform: scale(1) translateX(20%);

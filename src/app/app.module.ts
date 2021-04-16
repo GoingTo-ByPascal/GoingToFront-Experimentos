@@ -17,6 +17,8 @@ import { LoginComponent } from './pages/profile/login/login.component';
 import { RegisterComponent } from './pages/profile/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StarsComponent } from './pages/search/stars/stars.component';
+import { LocatableDetailComponent } from './pages/explore/locatable-detail/locatable-detail.component';
+import { SubheaderComponent } from './pages/subheader/subheader.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { StarsComponent } from './pages/search/stars/stars.component';
     ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    StarsComponent
+    StarsComponent,
+    LocatableDetailComponent,
+    SubheaderComponent
   
   ],
   imports: [

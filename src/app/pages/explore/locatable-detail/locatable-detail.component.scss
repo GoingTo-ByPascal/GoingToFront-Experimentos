@@ -1,0 +1,75 @@
+@import 'src/assets/css/styles.scss';
+.locate-detail{
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+   
+     
+    .subheader{
+        width: 100%;
+    }
+   
+
+    .content{
+        .description{
+            width: 50%;
+            h1{
+                text-align: justify;
+            }
+        }
+        padding: 2% 5% 2% 5%;
+        display: flex;
+        flex-direction: column;
+        .tabs{
+            width: 100%;
+            height: auto;
+            padding: 3% 0 3% 0;
+            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            @include subtitle();
+            .tab{
+                @include button();
+                ul{
+                    li{
+                        transform: scale(1) ;
+                        transition: transform 250ms ease;
+                    }
+                    li:hover{
+                        transform: scale(1.4) translateX(20%);
+                    }
+    
+                    li.button{
+                        list-style-type: none;
+    
+                    }
+                    li.button:hover{
+                        transform: scale(1) translateX(0%);
+                    }
+    
+                    @media screen and (max-width:600px) {
+                        li:hover{
+                            transform: scale(1) translateX(20%);
+    
+                        }
+                    }
+                }
+            }
+            h1::after{
+                content: '';
+                width: 100px;
+                height: 30px;
+                background-color: red;
+            }
+            h2{
+                font-size: 1.5rem;
+            }
+           
+        }
+    }
+}

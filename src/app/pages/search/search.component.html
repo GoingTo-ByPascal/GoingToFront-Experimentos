@@ -15,7 +15,7 @@
             <ul>
                 <ng-container *ngIf="cities.length > 0;else noItems1">
                     <ng-container *ngFor="let city of cities">
-                        <li (click)="getPlaces(city.id)"  > <p>{{city.name}}</p></li>
+                        <li (click)="getPlaces(city.id)" (click)="getData(city.locatable.id)"   > <p>{{city.name}}</p></li>
                     </ng-container>
                 </ng-container>
                  <ng-template #noItems1>
@@ -29,7 +29,7 @@
             <ul>
                 <ng-container *ngIf="places.length > 0;else noItems2">
                     <ng-container *ngFor="let place of places">
-                        <li   > <p>{{place.name}}</p></li>
+                        <li (click)="getData(place.locatable.id)"   > <p>{{place.name}}</p></li>
                     </ng-container>
                 </ng-container>
                 <ng-template #noItems2>
@@ -42,10 +42,15 @@
         <div class="tab">
             <h1>Tips</h1>
             <ul *ngIf="tips.length > 0;else NoData">
-                <li *ngFor="let tip of tips">
-                    {{tip.text}}
+                <li >
+                    {{tips[0].text}}
                     
                 </li>
+                <li class="button">
+                    <button (click)="redirectTo('locate',tips[0].locatable.id)">
+                        View More
+                    </button>
+                 </li>
             </ul>
             <ng-template #NoData>
                 <h2>Please select a Place to get info</h2>
@@ -54,9 +59,13 @@
         <div class="tab">
             <h1>Reviews</h1>
             <ul *ngIf="reviews.length > 0;else NoData">
-                <li *ngFor="let review of reviews">
-                    {{review.comment}} <app-stars [starsquantity]="review.stars"></app-stars>
-                    
+                <li>
+                    {{reviews[0].comment}} <app-stars [starsquantity]="reviews[0].stars"></app-stars>
+                </li>
+                <li class="button">
+                    <button  (click)="redirectTo('locate',reviews[0].locatable.id)">
+                        View More
+                    </button>
                 </li>
             </ul>
             <ng-template #NoData>
@@ -66,10 +75,14 @@
         <div class="tab">
             <h1>Promos</h1>
             <ul *ngIf="promos.length > 0;else NoData">
-                <li *ngFor="let promo of promos">
-                    {{promo.text | titlecase}}.  Descuento de {{promo.discount | percent}}
-                    
+                <li>
+                    {{promos[0].text | titlecase}}.  Descuento de {{promos[0].discount | percent}}
                 </li>
+                <li class="button">
+                    <button (click)="redirectTo('locate',promos[0].locatable.id)">
+                        View More
+                    </button>
+                 </li>
             </ul>
             <ng-template #NoData>
                 <h2>Please select a Place to get info</h2>

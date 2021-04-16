@@ -2,13 +2,29 @@
     <h1>Search</h1>
     <div class="search-box">
         <div class="country">
-            Country
+            <h1>Country</h1>
+            <ul>
+                <ng-container *ngFor="let country of countries">
+                    <li (click)="getCities(country.id)" > <p>{{country.fullName}}</p></li>
+                </ng-container>
+            </ul>
         </div>
         <div class="city">
-            City
+            <h1>City</h1>
+            <ul>
+                <ng-container *ngFor="let city of cities">
+                    <li (click)="getPlaces(city.id)"  > <p>{{city.name}}</p></li>
+                </ng-container>
+            </ul>
+            
         </div>
         <div class="place">
-            Place
+            <h1>Place</h1>
+            <ul>
+                <ng-container *ngFor="let place of places">
+                    <li   > <p>{{place.name}}</p></li>
+                </ng-container>
+            </ul>
         </div>
     </div>
     <div class="tabs">

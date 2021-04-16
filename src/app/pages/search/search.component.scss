@@ -25,7 +25,22 @@
             height: 100%;
             padding: 2%;
             @include center();
+            justify-content: flex-start;
             align-items: flex-start;
+            flex-direction: column;
+            overflow-y: scroll;
+            ul{
+               
+                li{
+                    cursor: pointer;
+                    transform: scale(1);
+                    transition: transform 250ms ease;
+
+                }
+                li:hover{
+                    transform: scale(1.15);
+                }
+            }
         }
         .country,.city{
             border-right: 0.5px solid;

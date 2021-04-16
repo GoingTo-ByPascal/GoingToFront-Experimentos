@@ -15,6 +15,7 @@ import { PlaceItemComponent } from './pages/place-item/place-item.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { LoginComponent } from './pages/profile/login/login.component';
 import { RegisterComponent } from './pages/profile/register/register.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RegisterComponent } from './pages/profile/register/register.component';
     AppRoutingModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

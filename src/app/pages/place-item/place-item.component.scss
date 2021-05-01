@@ -1,10 +1,13 @@
 .item{
-    max-width: 252px;
-    min-width: 235px;
-    height: 252px;
+    max-width: 260px;
+    min-width: 260px;
+    height: 250px;
     border: 1px solid;
     border-radius: 10px;
     position: relative;
+    display: inline-block;
+    margin-left: 60px;
+
     img{
         position: relative;
         width: 100%;
@@ -12,21 +15,41 @@
         background-color: red;
         overflow: hidden;
         border-radius: 10px;
+
+    }
+    .box{
+      height: 100%;
+    }
+    .box:hover {
+      z-index: 1;
+      transform: scale(1.05);
+      box-shadow: 0 25px 40px rgba(0,0,0,.5);
     }
     .icons{
         position: absolute;
         bottom: 0;
         left: 40%;
-        mat-icon{
-            color: white;
+      mat-icon{
+            color: black;
             margin-right: 5px;
+            cursor: pointer;
         }
         gap: 1rem;
     }
+  .content{
+    text-align: center;
+    width: 250px;
+         h1{
+            font-size: 20px;
+           }
+  }
+  h1{
+    font-size: 25px;
+  }
 }
 @media screen and (max-width:900px){
    .item{
        width: 100%;
-       
+
    }
 }

@@ -4,7 +4,7 @@
       [src]="item.image">
   </div>
   <div class="icons">
-    <mat-icon>favorite</mat-icon>
+    <mat-icon (click)="toAssingFavorite(item.locatable.id)">favorite</mat-icon>
     <mat-icon>share</mat-icon>
   </div>
   <div class="content">

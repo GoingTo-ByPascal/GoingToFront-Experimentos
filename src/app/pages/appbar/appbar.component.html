@@ -19,8 +19,18 @@
                     Explore
                 </p>
             </li>
+          <li class="menu" *ngIf="authenticationService.loggedIn()" (click)="logout()">
+            <p>
+              Cerrar sesion
+            </p>
+          </li>
+          <li class="menu" [routerLink]="['login']" *ngIf="!authenticationService.loggedIn()">
+            <p>
+              Iniciar sesión
+            </p>
+          </li>
             <li class="menu" style="display: none;">
-         
+
                   <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <fa-icon [icon]="faCoffee"></fa-icon>
@@ -31,9 +41,9 @@
                         </div>
                     </div>
                   </div>
-               
+
             </li>
-            
+
         </ul>
     </div>
 </div>

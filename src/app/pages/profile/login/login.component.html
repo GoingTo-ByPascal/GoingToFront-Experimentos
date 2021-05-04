@@ -10,7 +10,7 @@
             <input formControlName="password" placeholder="Contraseña" type="password">
         </div>
         <div class="form-controller">
-            <button  >Ingresar</button>
+            <button (click)="onLogin()" >Ingresar</button>
         </div>
         <div class="form-controller">
             <button type="button"  (click)="ActivateRegister($event)">Registrarse</button>

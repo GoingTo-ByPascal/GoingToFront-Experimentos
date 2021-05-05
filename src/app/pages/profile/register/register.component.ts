@@ -1,35 +1,38 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { faFont, faMailBulk, faUnlock, faUser } from '@fortawesome/free-solid-svg-icons';
+import {
+  faFont,
+  faMailBulk,
+  faUnlock,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent implements OnInit {
-
   @Output() login: EventEmitter<boolean> = new EventEmitter();
 
-  constructor() { }
-  registerForm:FormGroup;
-  faMail= faMailBulk;
+  constructor() {}
+  registerForm: FormGroup;
+  faMail = faMailBulk;
   faName = faFont;
   faPassword = faUnlock;
   ngOnInit(): void {
     this.initialize();
   }
-  initialize(){
+  initialize() {
     this.registerForm = new FormGroup({
-      email: new FormControl('',[Validators.required,Validators.email]),
-      name: new FormControl('',[Validators.required]),
-      repeatPassword: new FormControl('',Validators.required),
-      password: new FormControl('',[Validators.required])
-    })
+      email: new FormControl('', [Validators.required, Validators.email]),
+      name: new FormControl('', [Validators.required]),
+      repeatPassword: new FormControl('', Validators.required),
+      password: new FormControl('', [Validators.required]),
+    });
   }
-  ActivateLogin($event){
+  ActivateLogin($event) {
     event.stopPropagation();
-    this.login.emit()
+    this.login.emit();
   }
-
 }

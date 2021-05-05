@@ -1,40 +1,40 @@
 <div class="appbar">
-    <div class="logo">
-        <img src="assets/imgs/logo/logo.png" >
-
-    </div>
-    <div class="menu">
-        <ul>
-            <li class="menu" [routerLink]="['home']">
-                <p>
-                    Home
-                </p>
-            </li>
-            <li class="menu" [routerLink]="['search']">
-                <p>
-                    Search
-                </p>
-            </li>
-            <li class="menu" [routerLink]="['explore']">
-                <p>
-                    Explore
-                </p>
-            </li>
-            <li class="menu" >
-         
-                  <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <fa-icon [icon]="faCoffee"></fa-icon>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
-                        <div class="content">
-                                <app-profile></app-profile>
-                        </div>
-                    </div>
-                  </div>
-               
-            </li>
-            
-        </ul>
-    </div>
+  <div class="logo">
+    <img src="assets/imgs/logo/logo.png" />
+  </div>
+  <div class="menu">
+    <ul>
+      <li class="menu" [routerLink]="['home']">
+        <p>Home</p>
+      </li>
+      <li class="menu" [routerLink]="['search']">
+        <p>Search</p>
+      </li>
+      <li class="menu" [routerLink]="['explore']">
+        <p>Explore</p>
+      </li>
+      <li class="menu">
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenu2"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <fa-icon [icon]="faCoffee"></fa-icon>
+          </button>
+          <div
+            class="dropdown-menu dropdown-menu-right"
+            aria-labelledby="dropdownMenu2"
+          >
+            <div class="content">
+              <app-profile></app-profile>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

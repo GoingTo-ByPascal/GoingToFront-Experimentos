@@ -1,41 +1,49 @@
 <div class="register-container">
-    <img src="assets/imgs/logo/logo.png" >
+  <img src="assets/imgs/logo/logo.png" />
 
-    <form [formGroup]="registerForm">
-        <h1>Regístrate</h1>
-        <div class="form-controller">
-            <label>Email</label>
-            <div class="form-container">
-                <fa-icon [icon]="faMail"></fa-icon>
-                <input formControlName="email" placeholder="Email" type="email">
-            </div>
-        </div>
-        <div class="form-controller">
-            <label>Nombre</label>
-            <div class="form-container">
-                <fa-icon [icon]="faName"></fa-icon>
-                <input formControlName="name" placeholder="Nombre" type="text">
-            </div>
-        </div>
-        <div class="form-controller">
-            <label>Contraseña</label>
-            <div class="form-container">
-                <fa-icon [icon]="faPassword"></fa-icon>
-                <input formControlName="password" placeholder="Contraseña" type="password">
-            </div>
-        </div>
-        <div class="form-controller">
-            <label>Repetir Contraseña</label>
-            <div class="form-container">
-                <fa-icon [icon]="faPassword"></fa-icon>
-                <input formControlName="repeatPassword" placeholder="Repetir Contraseña" type="password">
-            </div>
-        </div>
-        <div class="form-controller">
-            <button>Registrarse</button>
-        </div>
-        <div class="form-controller">
-            <button (click)="ActivateLogin($event)" >Cancelar Registro</button>
-        </div>
-    </form>
+  <form [formGroup]="registerForm">
+    <h1>Regístrate</h1>
+    <div class="form-controller">
+      <label>Email</label>
+      <div class="form-container">
+        <fa-icon [icon]="faMail"></fa-icon>
+        <input formControlName="email" placeholder="Email" type="email" />
+      </div>
+    </div>
+    <div class="form-controller">
+      <label>Nombre</label>
+      <div class="form-container">
+        <fa-icon [icon]="faName"></fa-icon>
+        <input formControlName="name" placeholder="Nombre" type="text" />
+      </div>
+    </div>
+    <div class="form-controller">
+      <label>Contraseña</label>
+      <div class="form-container">
+        <fa-icon [icon]="faPassword"></fa-icon>
+        <input
+          formControlName="password"
+          placeholder="Contraseña"
+          type="password"
+        />
+      </div>
+    </div>
+    <div class="form-controller">
+      <label>Repetir Contraseña</label>
+      <div class="form-container">
+        <fa-icon [icon]="faPassword"></fa-icon>
+        <input
+          formControlName="repeatPassword"
+          placeholder="Repetir Contraseña"
+          type="password"
+        />
+      </div>
+    </div>
+    <div class="form-controller">
+      <button>Registrarse</button>
+    </div>
+    <div class="form-controller">
+      <button (click)="ActivateLogin($event)">Cancelar Registro</button>
+    </div>
+  </form>
 </div>

@@ -12,57 +12,73 @@ import { LocatableService } from 'src/app/services/locatable.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
+  Subscriptions: Array<Subscription> = [];
+  constructor(
+    private countryService: CountryService,
+    private cityService: CityService,
+    private locatableService: LocatableService,
+    private router: Router
+  ) {}
+  countries: Country[] = [];
+  cities: City[] = [];
+  places: Place[] = [];
+  reviews: Review[] = [];
 
-  Subscriptions: Array<Subscription> = []
-  constructor(private countryService:CountryService,private cityService:CityService,private locatableService:LocatableService,private router:Router) { }
-  countries: Country[] = []
-  cities: City[] = []
-  places: Place[] = []
-  reviews: Review[] = []
-  
-  tips: any[] = []
-  promos:any[] = []
+  tips: any[] = [];
+  promos: any[] = [];
   ngOnInit(): void {
     this.initialize();
   }
 
-  initialize(){ 
-    this.Subscriptions.push(this.countryService.getAllCountries().subscribe((response:any)=>{
-      this.countries = response;
-    }))
+  initialize() {
+    this.Subscriptions.push(
+      this.countryService.getAllCountries().subscribe((response: any) => {
+        this.countries = response;
+      })
+    );
   }
-  getCities(countryId:string){
-    this.Subscriptions.push(this.countryService.getCitiesByCountry(countryId).subscribe((response:any)=>{
-      this.cities = response;
-      this.places = []
-    }))
+  getCities(countryId: string) {
+    this.Subscriptions.push(
+      this.countryService
+        .getCitiesByCountry(countryId)
+        .subscribe((response: any) => {
+          this.cities = response;
+          this.places = [];
+        })
+    );
   }
-  getPlaces(cityId:string){
-    this.Subscriptions.push(this.cityService.getPlacesByCity(cityId).subscribe((response:any)=>{
-      this.places = response;
-    }))
+  getPlaces(cityId: string) {
+    this.Subscriptions.push(
+      this.cityService.getPlacesByCity(cityId).subscribe((response: any) => {
+        this.places = response;
+      })
+    );
   }
-  getData(locatableId:string){
-    this.Subscriptions.push(this.locatableService.getReviewsByLocatableId(locatableId).subscribe((response:any)=>{
-      this.reviews = response
-    }),
-    this.locatableService.getTipsByLocatableId(locatableId).subscribe((response:any)=>{
-      this.tips = response
-
-    }),
-    this.locatableService.getPromoByLocatableId(locatableId).subscribe((response:any)=>{
-      this.promos = response
-
-    })
-    
-    )
+  getData(locatableId: string) {
+    this.Subscriptions.push(
+      this.locatableService
+        .getReviewsByLocatableId(locatableId)
+        .subscribe((response: any) => {
+          this.reviews = response;
+        }),
+      this.locatableService
+        .getTipsByLocatableId(locatableId)
+        .subscribe((response: any) => {
+          this.tips = response;
+        }),
+      this.locatableService
+        .getPromoByLocatableId(locatableId)
+        .subscribe((response: any) => {
+          this.promos = response;
+        })
+    );
   }
-  redirectTo(uri:string,param:string){
-
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-    this.router.navigate([uri,param]));
- }
+  redirectTo(uri: string, param: string) {
+    this.router
+      .navigateByUrl('/', { skipLocationChange: true })
+      .then(() => this.router.navigate([uri, param]));
+  }
 }

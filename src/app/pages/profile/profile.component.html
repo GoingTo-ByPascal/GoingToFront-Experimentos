@@ -1,4 +1,10 @@
 <div class="profile-container">
-    <app-login *ngIf="ActiveScreen[0]" (register)="ActivateRegister();" ></app-login>
-    <app-register *ngIf="ActiveScreen[1]" (login)="ActivateLogin()" ></app-register>
+  <app-login
+    *ngIf="ActiveScreen[0]"
+    (register)="ActivateRegister()"
+  ></app-login>
+  <app-register
+    *ngIf="ActiveScreen[1]"
+    (login)="ActivateLogin()"
+  ></app-register>
 </div>

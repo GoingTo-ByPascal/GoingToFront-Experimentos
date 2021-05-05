@@ -34,8 +34,7 @@ import { SubheaderComponent } from './pages/subheader/subheader.component';
     RegisterComponent,
     StarsComponent,
     LocatableDetailComponent,
-    SubheaderComponent
-  
+    SubheaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,9 +42,9 @@ import { SubheaderComponent } from './pages/subheader/subheader.component';
     FontAwesomeModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

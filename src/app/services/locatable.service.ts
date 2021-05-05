@@ -4,24 +4,24 @@ import { environment } from 'src/environments/environment';
 import { Review } from '../model/Review';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocatableService {
+  constructor(private http: HttpClient) {}
+  URI: string = `${environment.HOST_URL}/locatables`;
 
-
-  constructor(private http:HttpClient) { }
-  URI: string = `${environment.HOST_URL}/locatables`
-
-  getReviewsByLocatableId(locatableId:string){
-    return this.http.get<Review[]>(`${this.URI}/${locatableId}/reviews`)
+  getReviewsByLocatableId(locatableId: string) {
+    return this.http.get<Review[]>(`${this.URI}/${locatableId}/reviews`);
   }
-  getTipsByLocatableId(locatableId:string){
-    return this.http.get<any[]>(`${this.URI}/${locatableId}/tips`)
+  getTipsByLocatableId(locatableId: string) {
+    return this.http.get<any[]>(`${this.URI}/${locatableId}/tips`);
   }
-  getPromoByLocatableId(locatableId:string){
-    return this.http.get<any[]>(`${environment.HOST_URL}/locatable/${locatableId}/promos`)
+  getPromoByLocatableId(locatableId: string) {
+    return this.http.get<any[]>(
+      `${environment.HOST_URL}/locatable/${locatableId}/promos`
+    );
   }
-  getLocatableInfo(locatableId:string){
-    return this.http.get<any[]>(`${this.URI}/${locatableId}`)
+  getLocatableInfo(locatableId: string) {
+    return this.http.get<any[]>(`${this.URI}/${locatableId}`);
   }
 }

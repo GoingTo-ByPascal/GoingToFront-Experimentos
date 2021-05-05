@@ -32,9 +32,9 @@
             margin: -5px 0 15px 0;
             border-top: 2px solid rgb(53, 53, 53);
         }
-        @include redButton();
+        @include Button();
         .form-controller.registerButton{
-            margin-top: 80px;
+            margin-top: 50px;
             @include center();
             button{
                 width: 100%;

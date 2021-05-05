@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { faFont, faMailBulk, faUnlock, faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-register',
@@ -12,12 +13,17 @@ export class RegisterComponent implements OnInit {
 
   constructor() { }
   registerForm:FormGroup;
+  faMail= faMailBulk;
+  faName = faFont;
+  faPassword = faUnlock;
   ngOnInit(): void {
     this.initialize();
   }
   initialize(){
     this.registerForm = new FormGroup({
-      user: new FormControl('',[Validators.required]),
+      email: new FormControl('',[Validators.required,Validators.email]),
+      name: new FormControl('',[Validators.required]),
+      repeatPassword: new FormControl('',Validators.required),
       password: new FormControl('',[Validators.required])
     })
   }

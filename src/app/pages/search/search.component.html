@@ -21,7 +21,7 @@
             (click)="getCities(country.id)"
             (click)="getData(country.locatable.id)"
           >
-            <p>{{ country.fullName }}</p>
+            <p id="{{ country.fullName }}">{{ country.fullName }}</p>
           </li>
         </ng-container>
       </ul>
@@ -68,7 +68,10 @@
           {{ tips[0].text }}
         </li>
         <li class="button">
-          <button (click)="redirectTo('locate', tips[0].locatable.id)">
+          <button
+            id="viewMoreTips"
+            (click)="redirectTo('locate', tips[0].locatable.id)"
+          >
             View More
           </button>
         </li>
@@ -85,7 +88,10 @@
           <app-stars [starsquantity]="reviews[0].stars"></app-stars>
         </li>
         <li class="button">
-          <button (click)="redirectTo('locate', reviews[0].locatable.id)">
+          <button
+            id="viewMoreReviews"
+            (click)="redirectTo('locate', reviews[0].locatable.id)"
+          >
             View More
           </button>
         </li>

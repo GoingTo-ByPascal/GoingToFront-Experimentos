@@ -40,7 +40,11 @@ $buttonOnHoverColor: #201aa3;
       flex-direction: column;
       margin-bottom: 15px;
       border-radius: 5px;
-
+      p.error {
+        color: red;
+        font-size: 10px;
+        margin-left: 20px;
+      }
       label {
         width: 100%;
         font-family: "Varela Round", sans-serif;

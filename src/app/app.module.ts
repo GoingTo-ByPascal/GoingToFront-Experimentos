@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StarsComponent } from './pages/search/stars/stars.component';
 import { LocatableDetailComponent } from './pages/explore/locatable-detail/locatable-detail.component';
 import { SubheaderComponent } from './pages/subheader/subheader.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { SubheaderComponent } from './pages/subheader/subheader.component';
     BrowserAnimationsModule,
     AngularMaterialModule,
     HttpClientModule,
+    RouterModule.forRoot([]),
+    RouterTestingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

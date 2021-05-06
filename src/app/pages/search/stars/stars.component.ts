@@ -7,12 +7,13 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./stars.component.scss'],
 })
 export class StarsComponent implements OnInit {
-  @Input() starsquantity: number;
-  array: any[] = [];
+  @Input() starsquantity: number = 0;
+
   constructor() {}
   star = faStar;
+  array = [];
   ngOnInit(): void {
     this.starsquantity = Math.round(this.starsquantity);
-    this.array = Array(this.starsquantity).fill('test');
+    this.array = Array(this.starsquantity).fill('');
   }
 }

@@ -1,13 +1,13 @@
-$buttonColor: #f88585;
-$buttonOnHoverColor: #201aa3;
+$buttonColor: #003055;
 @mixin center() {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 @mixin title {
   h1 {
-    font-family: "Thasadith", sans-serif;
+    font-family: 'Thasadith', sans-serif;
     font-size: 3rem;
     font-weight: bold;
   }
@@ -15,8 +15,10 @@ $buttonOnHoverColor: #201aa3;
     h1 {
       font-size: 1.5rem;
     }
+
   }
 }
+
 @mixin button() {
   button {
     background-color: #003055;
@@ -27,7 +29,7 @@ $buttonOnHoverColor: #201aa3;
     border-radius: 10px;
     color: white;
     font-weight: 600;
-    font-family: "Varela Round", sans-serif;
+    font-family: 'Varela Round', sans-serif;
   }
 }
 
@@ -104,7 +106,8 @@ $buttonOnHoverColor: #201aa3;
   }
 }
 
-@mixin Button {
+@mixin redButton {
+
   button {
     display: flex;
     align-items: center;
@@ -156,5 +159,6 @@ $buttonOnHoverColor: #201aa3;
     p {
       font-size: 1.8rem;
     }
+
   }
 }

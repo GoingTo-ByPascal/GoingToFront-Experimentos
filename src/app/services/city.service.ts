@@ -7,10 +7,13 @@ import { City } from '../model/City';
   providedIn: 'root',
 })
 export class CityService {
-  URI: string = `${environment.HOST_URL}/cities`;
-  constructor(private http: HttpClient) {}
+  URI: string = `${environment.HOST_URL}/cities`
+  constructor(private http:HttpClient) { }
 
-  getPlacesByCity(cityId: string) {
+  getAllCities() {
+    return this.http.get<City[]>(this.URI);
+  }
+  getPlacesByCity(cityId:string){
     return this.http.get<City[]>(`${this.URI}/${cityId}/places`);
   }
 }

@@ -2,17 +2,32 @@
     height: 80px;
     background: #3490de;
     display: flex;
-    padding: 0 5% 0 5%;
-    .logo{
-        width: 40%;
-        height: 100%;
-        display: flex;
-        align-items:center ;
-        justify-content: flex-start;
+    align-items: center;
+    justify-content: flex-start;
+    img {
+      cursor: pointer;
     }
-    .menu{
-        width: 60%;
-        height: 100%;
+  }
+  .menu {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    ul {
+      width: 100%;
+      justify-content: space-around;
+      display: flex;
+      margin: 0;
+      li.menu,
+      li {
+        list-style-type: none;
+        padding: 1% 2% 1% 2%;
+        width: auto;
+        cursor: pointer;
+        font-family: "Varela Round", sans-serif;
+        transition: all 400ms ease;
         display: flex;
         align-items: center;
         justify-content: center;

@@ -9,6 +9,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    img {
+      cursor: pointer;
+    }
   }
   .menu {
     width: 60%;

@@ -3,7 +3,7 @@ import { Given, Then, When } from "cypress-cucumber-preprocessor/steps";
 Given("El usuario escoge un lugar", () => {
   cy.visit("http://localhost:4200");
   cy.get("#search").click();
-  cy.wait(2000);
+  cy.wait(5000);
 });
 When("Hace click en el lugar escogido", () => {
   cy.get("#Peru").click();

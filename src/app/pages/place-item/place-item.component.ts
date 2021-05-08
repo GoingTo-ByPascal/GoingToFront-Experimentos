@@ -25,27 +25,63 @@ export class PlaceItemComponent implements OnInit {
   countries: Country[] = []
   cities: City[] = []
   places: Place[] = []
+  id: any
+  favoriteByUserId: Favorite[] = []
   favorite: Favorite[] = []
-
   ngOnInit(): void {
+    this.id = sessionStorage.getItem('userid')
     this.countryService.getAllCountries().subscribe((response: any) => {
       this.countries = response
-      console.log(this.countries)
+      this.favoriteService.getFavoriteByUserId(this.id).subscribe((response: any) => {
+        this.favorite = response
+      for (let i = 0; i<(this.countries).length; i++)
+      {
+        for (let j = 0; j< (this.favorite).length; j++)
+        {
+          if (this.countries[i].locatable.id == this.favorite[j].id)
+          {
+            this.countries[i].isFavorite = true
+          }
+        }
+      }
       this.shuffleItems(this.countries)
+      })
     })
     this.cityService.getAllCities().subscribe((response: any) => {
       this.cities = response
-      console.log(this.cities)
+      this.favoriteService.getFavoriteByUserId(this.id).subscribe((response: any) => {
+        this.favorite = response
+        for (let i = 0; i<(this.cities).length; i++)
+        {
+          for (let j = 0; j< (this.favorite).length; j++)
+          {
+            if (this.cities[i].locatable.id == this.favorite[j].id)
+            {
+              this.cities[i].isFavorite = true
+            }
+          }
+        }
       this.shuffleItems(this.cities)
-      console.log(this.cities)
+      })
     })
     this.placeService.getAllPlaces().subscribe((response: any) => {
       this.places = response
+      this.favoriteService.getFavoriteByUserId(this.id).subscribe((response: any) => {
+        this.favorite = response
+        for (let i = 0; i<(this.places).length; i++)
+        {
+          for (let j = 0; j< (this.favorite).length; j++)
+          {
+            if (this.places[i].locatable.id == this.favorite[j].id)
+            {
+              this.places[i].isFavorite = true
+            }
+          }
+        }
       this.shuffleItems(this.places)
+      })
     })
-    this.favoriteService.getFavoriteByUserId('1').subscribe((response: any) => {
-      this.favorite = response
-    })
+
   }
 
   shuffleItems(item: any[]) {
@@ -62,14 +98,24 @@ export class PlaceItemComponent implements OnInit {
       this.router.navigate([uri, param]));
   }
 
-  toAssingFavorite(locatableId: string) {
+    toAssingFavorite(locatableId: string) {
     if (sessionStorage.getItem('token')) {
-      this.favoriteService.addFavorite(sessionStorage.getItem('id'), locatableId).subscribe(() => {
+      this.id = sessionStorage.getItem('userid')
+      console.log(this.id)
+      this.favoriteService.getFavoriteByUserId(this.id).subscribe((response: any) => {
+        this.favoriteByUserId = response
+        if (this.itsIn(locatableId) == false) {
+          this.favoriteService.addFavorite(this.id, locatableId).subscribe(() => { this.itsfavorite()
+          })
+        }
       })
     } else {
       this.openDialog()
     }
+
+
   }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogforsigninComponent, {
       width: '250px',
@@ -78,6 +124,22 @@ export class PlaceItemComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
 
     });
+  }
+
+  itsIn(locatableId): boolean {
+    for (let i = 0; i < (this.favoriteByUserId).length; i++) {
+      if (this.favoriteByUserId[i].id == locatableId) {
+        console.log('si es favorito')
+        return true
+      }
+    }
+    return false
+  }
+  itsfavorite() {
+    this.favoriteService.getFavoriteByUserId(this.id).subscribe((response: any) => {
+      this.favoriteByUserId = response
+      console.log(this.favoriteByUserId)
+    })
   }
 
 }

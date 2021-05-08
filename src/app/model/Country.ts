@@ -5,4 +5,5 @@ export class Country{
     shortName:string;
     fullName:string;
     locatable:Locatable
+    isFavorite: boolean = false
 }

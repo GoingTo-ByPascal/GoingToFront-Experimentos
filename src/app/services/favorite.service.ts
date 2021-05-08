@@ -15,6 +15,6 @@ export class FavoriteService {
    return this.htpp.get<Favorite[]>(`${this.URI}/${userId}/locatables`)
   }
   addFavorite(userId, locatableId){
-    return this.htpp.post(`${this.URI}/${userId}/locatables/${locatableId}`, {})
+    return this.htpp.post(`${this.URI}/${userId}/locatables/${locatableId}`,  '')
   }
 }

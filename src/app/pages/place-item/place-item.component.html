@@ -4,7 +4,8 @@
       [src]="item.image">
   </div>
   <div class="icons">
-    <mat-icon (click)="toAssingFavorite(item.locatable.id)">favorite</mat-icon>
+    <mat-icon class="notFavorite" (click)="toAssingFavorite(item.locatable.id)" *ngIf="item.isFavorite != true">favorite</mat-icon>
+    <mat-icon class="favorite" (click)="toAssingFavorite(item.locatable.id)" *ngIf="item.isFavorite == true">favorite</mat-icon>
     <mat-icon>share</mat-icon>
   </div>
   <div class="content">
@@ -17,7 +18,8 @@
       [src]="item.image">
   </div>
   <div class="icons">
-    <mat-icon>favorite</mat-icon>
+    <mat-icon class="notFavorite" (click)="toAssingFavorite(item.locatable.id)" *ngIf="item.isFavorite != true">favorite</mat-icon>
+    <mat-icon class="favorite" (click)="toAssingFavorite(item.locatable.id)" *ngIf="item.isFavorite == true">favorite</mat-icon>
     <mat-icon>share</mat-icon>
   </div>
   <div class="content">
@@ -30,7 +32,8 @@
       [src]="item.image">
   </div>
   <div class="icons">
-    <mat-icon>favorite</mat-icon>
+    <mat-icon class="notFavorite" (click)="toAssingFavorite(item.locatable.id)" *ngIf="item.isFavorite != true">favorite</mat-icon>
+    <mat-icon class="favorite" (click)="toAssingFavorite(item.locatable.id)" *ngIf="item.isFavorite == true">favorite</mat-icon>
     <mat-icon>share</mat-icon>
   </div>
   <div class="content">

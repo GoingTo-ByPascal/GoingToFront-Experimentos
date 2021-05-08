@@ -1,32 +1,67 @@
 <div class="login-container">
-    <img src="assets/imgs/logo/logo.png" >
-    <h1>Ingresa a tu cuenta</h1>
-    <form [formGroup]="loginForm">
-        <div class="form-inputs">
-            <div class="form-controller">
-                <label>Email</label>
-                <div class="form-container">
-                    <fa-icon [icon]="faMail"></fa-icon>
-                    <input formControlName="email" placeholder="Email" type="email">
-                </div>
-            </div>
-            <div class="form-controller">
-                <label>Contraseña</label>
-                <div class="form-container">
-                    <fa-icon [icon]="faPassword"></fa-icon>
-                    <input formControlName="password" placeholder="Contraseña" type="password">
-                </div>
-            </div>
+  <img src="assets/imgs/logo/logo.png" />
+  <h1>Ingresa a tu cuenta</h1>
+  <form [formGroup]="loginForm">
+    <div class="form-inputs">
+      <div class="form-controller">
+        <label>Email</label>
+        <div class="form-container">
+          <fa-icon [icon]="faMail"></fa-icon>
+          <input
+            id="email"
+            formControlName="email"
+            placeholder="Email"
+            type="email"
+          />
         </div>
- 
-        <div class="form-controller">
-            <button (click)="onLogin()" >Ingresar</button>
+        <p
+          class="error"
+          *ngIf="
+            loginForm.get('email').errors &&
+            (loginForm.get('email').touched || loginForm.get('email').dirty)
+          "
+        >
+          Por favor ingrese el correo correctamente
+        </p>
+      </div>
+      <div class="form-controller">
+        <label>Contraseña</label>
+        <div class="form-container">
+          <fa-icon [icon]="faPassword"></fa-icon>
+          <input
+            id="password"
+            formControlName="password"
+            placeholder="Contraseña"
+            type="password"
+          />
         </div>
-        <hr class="solid">
+        <p
+          class="error"
+          *ngIf="
+            loginForm.get('password').errors &&
+            (loginForm.get('password').touched ||
+              loginForm.get('password').dirty)
+          "
+        >
+          Por favor ingrese su contraseña
+        </p>
+      </div>
+    </div>
 
-        <div class="form-controller registerButton" >
-            <p>¿No tiene una cuenta?</p>
-            <button type="button"  (click)="ActivateRegister($event)">Regístrate</button>
-        </div>
-    </form>
+    <div class="form-controller">
+      <button id="loginButton">Ingresar</button>
+    </div>
+    <hr class="solid" />
+
+    <div class="form-controller registerButton">
+      <p>¿No tiene una cuenta?</p>
+      <button
+        type="button"
+        id="activeRegister"
+        (click)="ActivateRegister($event)"
+      >
+        Regístrate
+      </button>
+    </div>
+  </form>
 </div>

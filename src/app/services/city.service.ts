@@ -4,17 +4,16 @@ import { environment } from 'src/environments/environment';
 import { City } from '../model/City';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CityService {
-
-  URI: string = `${environment.HOST_URL}/cities`
-  constructor(private http:HttpClient) { }
+  URI: string = `${environment.HOST_URL}/cities`;
+  constructor(private http: HttpClient) {}
 
   getAllCities() {
     return this.http.get<City[]>(this.URI);
   }
-  getPlacesByCity(cityId:string){
+  getPlacesByCity(cityId: string) {
     return this.http.get<City[]>(`${this.URI}/${cityId}/places`);
   }
 }

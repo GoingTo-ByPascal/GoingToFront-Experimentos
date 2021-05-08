@@ -1,7 +1,17 @@
-@import 'src/assets/css/styles.scss';
+@import "src/assets/css/styles.scss";
 
-.explore{
-    width: 100%;
+.explore {
+  width: 100%;
+  height: auto;
+
+  @include title();
+  @include center();
+  flex-direction: column;
+  padding: 2%;
+  position: relative;
+  justify-content: flex-start;
+  .places {
+    width: 50%;
     height: auto;
 
     @include title();
@@ -10,27 +20,26 @@
     padding: 2%;
     position: relative;
     justify-content: flex-start;
-    .places{
+    .places {
+      width: 60%;
+      height: auto;
+      border-radius: 10px;
+      padding: 2%;
+      gap: 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 
-        width: 60%;
-        height: auto;
-        border-radius: 10px;
-        padding: 2%;
-        gap: 2rem;
-        display: flex;
-        flex-wrap: wrap;
+  @media screen and (max-width: 900px) {
+    .explore {
+      .places {
+        width: 100%;
         align-items: center;
         justify-content: center;
-
+      }
     }
-}
-
-@media screen and (max-width:900px){
-    .explore{
-        .places{
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-        }
-    }
+  }
 }

@@ -1,6 +1,6 @@
 <div class="appbar">
   <div class="logo">
-    <img src="assets/imgs/logo/logo.png" />
+    <img src="assets/imgs/logo/logo.png" [routerLink]="['home']" />
   </div>
   <div class="menu">
     <ul>
@@ -8,7 +8,7 @@
         <p>Home</p>
       </li>
       <li class="menu" [routerLink]="['search']">
-        <p>Search</p>
+        <p id="search">Search</p>
       </li>
       <li class="menu" [routerLink]="['explore']">
         <p>Explore</p>

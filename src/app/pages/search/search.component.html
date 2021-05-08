@@ -1,91 +1,121 @@
 <div class="search">
-    <h1>Search</h1>
-    <div class="search-box">
-        <div class="country">
-            <h1>Country</h1>
-            <ul>
-
-                <ng-container *ngFor="let country of countries">
-                    <li (click)="getCities(country.id)" (click)="getData(country.locatable.id)" > <p>{{country.fullName}}</p></li>
-                </ng-container>
-            </ul>
+  <h1>Search</h1>
+  <div class="search-box">
+    <div class="country">
+      <h1>Country</h1>
+      <ul>
+        <div class="sk-cube-grid" *ngIf="countries.length == 0">
+          <div class="sk-cube sk-cube1"></div>
+          <div class="sk-cube sk-cube2"></div>
+          <div class="sk-cube sk-cube3"></div>
+          <div class="sk-cube sk-cube4"></div>
+          <div class="sk-cube sk-cube5"></div>
+          <div class="sk-cube sk-cube6"></div>
+          <div class="sk-cube sk-cube7"></div>
+          <div class="sk-cube sk-cube8"></div>
+          <div class="sk-cube sk-cube9"></div>
+          <p>Loading...</p>
         </div>
-        <div class="city">
-            <h1>City</h1>
-            <ul>
-                <ng-container *ngIf="cities.length > 0;else noItems1">
-                    <ng-container *ngFor="let city of cities">
-                        <li (click)="getPlaces(city.id)" (click)="getData(city.locatable.id)"   > <p>{{city.name}}</p></li>
-                    </ng-container>
-                </ng-container>
-                 <ng-template #noItems1>
-                     <h2>Please select a country</h2>
-                 </ng-template>
-            </ul>
-
-        </div>
-        <div class="place">
-            <h1>Place</h1>
-            <ul>
-                <ng-container *ngIf="places.length > 0;else noItems2">
-                    <ng-container *ngFor="let place of places">
-                        <li (click)="getData(place.locatable.id)"   > <p>{{place.name}}</p></li>
-                    </ng-container>
-                </ng-container>
-                <ng-template #noItems2>
-                    <h2>Please select a city</h2>
-                </ng-template>
-            </ul>
-        </div>
+        <ng-container *ngFor="let country of countries">
+          <li
+            (click)="getCities(country.id)"
+            (click)="getData(country.locatable.id)"
+          >
+            <p id="{{ country.fullName }}">{{ country.fullName }}</p>
+          </li>
+        </ng-container>
+      </ul>
     </div>
-    <div class="tabs">
-        <div class="tab">
-            <h1>Tips</h1>
-            <ul *ngIf="tips.length > 0;else NoData">
-                <li>
-                    {{tips[0].text}}
-                </li>
-                <li class="button">
-                    <button (click)="redirectTo('locate',tips[0].locatable.id)">
-                        View More
-                    </button>
-                 </li>
-            </ul>
-            <ng-template #NoData>
-                <h2>Please select a Place to get info</h2>
-            </ng-template>
-        </div>
-        <div class="tab">
-            <h1>Reviews</h1>
-            <ul *ngIf="reviews.length > 0;else NoData">
-                <li>
-                    {{reviews[0].comment}} <app-stars [starsquantity]="reviews[0].stars"></app-stars>
-                </li>
-                <li class="button">
-                    <button  (click)="redirectTo('locate',reviews[0].locatable.id)">
-                        View More
-                    </button>
-                </li>
-            </ul>
-            <ng-template #NoData>
-                <h2>Please select a Place to get info</h2>
-            </ng-template>
-        </div>
-        <div class="tab">
-            <h1>Promos</h1>
-            <ul *ngIf="promos.length > 0;else NoData">
-                <li>
-                    {{promos[0].text | titlecase}}.  Descuento de {{promos[0].discount | percent}}
-                </li>
-                <li class="button">
-                    <button (click)="redirectTo('locate',promos[0].locatable.id)">
-                        View More
-                    </button>
-                 </li>
-            </ul>
-            <ng-template #NoData>
-                <h2>Please select a Place to get info</h2>
-            </ng-template>
-        </div>
+    <div class="city">
+      <h1>City</h1>
+      <ul>
+        <ng-container *ngIf="cities.length > 0; else noItems1">
+          <ng-container *ngFor="let city of cities">
+            <li
+              (click)="getPlaces(city.id)"
+              (click)="getData(city.locatable.id)"
+            >
+              <p>{{ city.name }}</p>
+            </li>
+          </ng-container>
+        </ng-container>
+        <ng-template #noItems1>
+          <h2>Please select a country</h2>
+        </ng-template>
+      </ul>
     </div>
+    <div class="place">
+      <h1>Place</h1>
+      <ul>
+        <ng-container *ngIf="places.length > 0; else noItems2">
+          <ng-container *ngFor="let place of places">
+            <li (click)="getData(place.locatable.id)">
+              <p>{{ place.name }}</p>
+            </li>
+          </ng-container>
+        </ng-container>
+        <ng-template #noItems2>
+          <h2>Please select a city</h2>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+  <div class="tabs">
+    <div class="tab">
+      <h1>Tips</h1>
+      <ul *ngIf="tips.length > 0; else NoData">
+        <li>
+          {{ tips[0].text }}
+        </li>
+        <li class="button">
+          <button
+            id="viewMoreTips"
+            (click)="redirectTo('locate', tips[0].locatable.id)"
+          >
+            View More
+          </button>
+        </li>
+      </ul>
+      <ng-template #NoData>
+        <h2>Please select a Place to get info</h2>
+      </ng-template>
+    </div>
+    <div class="tab">
+      <h1>Reviews</h1>
+      <ul *ngIf="reviews.length > 0; else NoData">
+        <li>
+          {{ reviews[0].comment }}
+          <app-stars [starsquantity]="reviews[0].stars"></app-stars>
+        </li>
+        <li class="button">
+          <button
+            id="viewMoreReviews"
+            (click)="redirectTo('locate', reviews[0].locatable.id)"
+          >
+            View More
+          </button>
+        </li>
+      </ul>
+      <ng-template #NoData>
+        <h2>Please select a Place to get info</h2>
+      </ng-template>
+    </div>
+    <div class="tab">
+      <h1>Promos</h1>
+      <ul *ngIf="promos.length > 0; else NoData">
+        <li>
+          {{ promos[0].text | titlecase }}. Descuento de
+          {{ promos[0].discount | percent }}
+        </li>
+        <li class="button">
+          <button (click)="redirectTo('locate', promos[0].locatable.id)">
+            View More
+          </button>
+        </li>
+      </ul>
+      <ng-template #NoData>
+        <h2>Please select a Place to get info</h2>
+      </ng-template>
+    </div>
+  </div>
 </div>

@@ -1,41 +1,110 @@
 <div class="register-container">
-    <img src="assets/imgs/logo/logo.png" >
+  <img src="assets/imgs/logo/logo.png" />
 
-    <form [formGroup]="registerForm">
-        <h1>Regístrate</h1>
-        <div class="form-controller">
-            <label>Email</label>
-            <div class="form-container">
-                <fa-icon [icon]="faMail"></fa-icon>
-                <input formControlName="email" placeholder="Email" type="email">
-            </div>
-        </div>
-        <div class="form-controller">
-            <label>Nombre</label>
-            <div class="form-container">
-                <fa-icon [icon]="faName"></fa-icon>
-                <input formControlName="name" placeholder="Nombre" type="text">
-            </div>
-        </div>
-        <div class="form-controller">
-            <label>Contraseña</label>
-            <div class="form-container">
-                <fa-icon [icon]="faPassword"></fa-icon>
-                <input formControlName="password" placeholder="Contraseña" type="password">
-            </div>
-        </div>
-        <div class="form-controller">
-            <label>Repetir Contraseña</label>
-            <div class="form-container">
-                <fa-icon [icon]="faPassword"></fa-icon>
-                <input formControlName="repeatPassword" placeholder="Repetir Contraseña" type="password">
-            </div>
-        </div>
-        <div class="form-controller">
-            <button>Registrarse</button>
-        </div>
-        <div class="form-controller">
-            <button (click)="ActivateLogin($event)" >Cancelar Registro</button>
-        </div>
-    </form>
+  <form [formGroup]="registerForm">
+    <h1>Regístrate</h1>
+    <div class="form-controller">
+      <label>Email</label>
+      <div class="form-container">
+        <fa-icon [icon]="faMail"></fa-icon>
+        <input
+          id="email"
+          formControlName="email"
+          placeholder="Email"
+          type="email"
+        />
+      </div>
+      <p
+        class="error"
+        *ngIf="
+          registerForm.get('email').errors &&
+          (registerForm.get('email').touched || registerForm.get('email').dirty)
+        "
+      >
+        Por favor ingrese el correo correctamente
+      </p>
+    </div>
+    <div class="form-controller">
+      <label>Nombre</label>
+      <div class="form-container">
+        <fa-icon [icon]="faName"></fa-icon>
+        <input
+          id="name"
+          formControlName="name"
+          placeholder="Nombre"
+          type="text"
+        />
+      </div>
+      <p
+        class="error"
+        *ngIf="
+          registerForm.get('name').errors &&
+          (registerForm.get('name').touched || registerForm.get('name').dirty)
+        "
+      >
+        Por favor su nombre
+      </p>
+    </div>
+    <div class="form-controller">
+      <label>Contraseña</label>
+      <div class="form-container">
+        <fa-icon [icon]="faPassword"></fa-icon>
+        <input
+          id="password"
+          formControlName="password"
+          placeholder="Contraseña"
+          type="password"
+        />
+      </div>
+      <p
+        class="error"
+        *ngIf="
+          registerForm.get('password').errors &&
+          (registerForm.get('password').touched ||
+            registerForm.get('password').dirty)
+        "
+      >
+        Por favor su contraseña
+      </p>
+    </div>
+    <div class="form-controller">
+      <label>Repetir Contraseña</label>
+      <div class="form-container">
+        <fa-icon [icon]="faPassword"></fa-icon>
+        <input
+          id="repeatPassword"
+          formControlName="repeatPassword"
+          placeholder="Repetir Contraseña"
+          type="password"
+        />
+      </div>
+      <p
+        class="error"
+        *ngIf="
+          registerForm.get('repeatPassword').errors &&
+          (registerForm.get('repeatPassword').touched ||
+            registerForm.get('repeatPassword').dirty)
+        "
+      >
+        Por favor ingrese su contraseña nuevamente
+      </p>
+      <p
+        class="error"
+        *ngIf="
+          registerForm.get('repeatPassword').value !=
+            registerForm.get('password').value &&
+          (registerForm.get('repeatPassword').touched ||
+            registerForm.get('repeatPassword').dirty)
+        "
+      >
+        Las contraseñas no coinciden
+      </p>
+    </div>
+    <div class="form-controller">
+      <button id="register">Registrarse</button>
+    </div>
+    <div class="form-controller">
+      <button (click)="ActivateLogin($event)">Cancelar Registro</button>
+    </div>
+  </form>
 </div>

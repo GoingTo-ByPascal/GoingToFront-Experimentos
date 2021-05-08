@@ -1,4 +1,7 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterModule } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { LocatableDetailComponent } from './locatable-detail.component';
 
@@ -8,9 +11,9 @@ describe('LocatableDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LocatableDetailComponent ]
-    })
-    .compileComponents();
+      imports: [RouterModule.forRoot([]), HttpClientTestingModule],
+      declarations: [LocatableDetailComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

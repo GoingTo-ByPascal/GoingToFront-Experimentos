@@ -1,24 +1,33 @@
-@import 'src/assets/css/styles.scss';
-.register-container{
-    width: 380px;
-    height: 400px;
-    padding: 5%;
-    @include center();
-  
-    flex-direction: column;
-    form{
-            
-        overflow-y: scroll;
+@import "src/assets/css/styles.scss";
+.register-container {
+  width: 380px;
+  height: 400px;
+  padding: 5%;
+  @include center();
 
-            @include title();
+  flex-direction: column;
+  form {
+    overflow-y: scroll;
 
-        h1{
-            font-size: 2rem;
-        }
-        width: 100%;
-        @include form-controller( (
-            Properties: (color:black,height:40px)
-        ));
-        @include redButton();
+    @include title();
+
+    h1 {
+      font-size: 2rem;
     }
+    width: 100%;
+    @include form-controller(
+      (
+        Properties: (
+          color: black,
+          height: 40px,
+        ),
+      )
+    );
+    .form-controller {
+      button {
+        height: 50px;
+      }
+    }
+    @include Button();
+  }
 }

@@ -1,19 +1,32 @@
 <div class="login-container">
+    <img src="assets/imgs/logo/logo.png" >
     <h1>Ingresa a tu cuenta</h1>
     <form [formGroup]="loginForm">
-        <div class="form-controller">
-            <label>Usuario</label>
-            <input formControlName="user" placeholder="Usuario" type="email">
+        <div class="form-inputs">
+            <div class="form-controller">
+                <label>Email</label>
+                <div class="form-container">
+                    <fa-icon [icon]="faMail"></fa-icon>
+                    <input formControlName="email" placeholder="Email" type="email">
+                </div>
+            </div>
+            <div class="form-controller">
+                <label>Contraseña</label>
+                <div class="form-container">
+                    <fa-icon [icon]="faPassword"></fa-icon>
+                    <input formControlName="password" placeholder="Contraseña" type="password">
+                </div>
+            </div>
         </div>
-        <div class="form-controller">
-            <label>Contraseña</label>
-            <input formControlName="password" placeholder="Contraseña" type="password">
-        </div>
+ 
         <div class="form-controller">
             <button (click)="onLogin()" >Ingresar</button>
         </div>
-        <div class="form-controller">
-            <button type="button"  (click)="ActivateRegister($event)">Registrarse</button>
+        <hr class="solid">
+
+        <div class="form-controller registerButton" >
+            <p>¿No tiene una cuenta?</p>
+            <button type="button"  (click)="ActivateRegister($event)">Regístrate</button>
         </div>
     </form>
 </div>

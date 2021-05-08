@@ -6,10 +6,9 @@ import {map} from "rxjs/operators";
 import {Router} from "@angular/router";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
-
   URI: string = `${environment.HOST_URL}/users/authenticate`
   constructor(private http: HttpClient, private router: Router) { }
   authenticate(email: string, password: string): Observable<any> {
@@ -28,6 +27,4 @@ export class LoginService {
         return false
       }
   }
-
-
 }

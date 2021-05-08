@@ -1,142 +1,154 @@
-@import 'src/assets/css/styles.scss';
+@import "src/assets/css/styles.scss";
 
-.home{
+.home {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  .main-logo {
+    width: 100%;
+    height: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/assets/imgs/banner/banner.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    .content {
+      height: 100%;
+      width: 100%;
+      padding-left: 50%;
+      padding: 0 10% 0 50%;
+      display: flex;
+      @include center();
+      flex-direction: column;
+      text-align: center;
+      color: white;
+      @include Button();
+      @include title();
+    }
+  }
+  .info {
     width: 100%;
     height: auto;
+    padding: 5%;
     display: flex;
     flex-direction: column;
-    .main-logo{
-        width: 100%;
-        height: 400px;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("/assets/imgs/banner/banner.jpg");
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        .content{
-            height: 100%;
-            width: 100%;
-            padding-left: 50%;
-            padding: 0 10% 0 50%;
-            display: flex;
-            @include center();
-            flex-direction: column;
-            text-align: center;
-            color: white;
-           @include button();
-           @include title();
-          
-        }
-  
+    @include subtitle();
+    @include center();
+    h2 {
+      font-weight: bold;
     }
-    .info{
-        width: 100%;
-        height: auto;
-        padding: 5% ;
-        display: flex;
-        flex-direction: column;
-        @include subtitle();
-        @include center();
-        h2{
-            font-weight: bold;
-        }
-        @include paragraph();
-        .recommendations{
-            width: 100%;
-            min-height: 370px;
-            max-height: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            @include center();
-            gap: 2em;
-            .card{
-                width: 280px;
-                height: 280px;
-                padding: 10px;
-                display: flex;
-                @include center();
-                flex-direction: column;
-                img{
-                    width: 100px;
-                    height: 100px;
-                }
-                p{font-size: 1.5rem;}
-                a{
-                    cursor: pointer;
-                    color: blue;
-                    font-size: 0.8rem;
-                }
-            }
-        }
-    }
-    .social{
-        width: 100%;
-        height: auto;
-        padding: 5% ;
+    @include paragraph();
+    .recommendations {
+      width: 100%;
+      min-height: 370px;
+      max-height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      @include center();
+      gap: 2em;
+      .card {
+        width: 280px;
+        height: 280px;
+        padding: 10px;
         display: flex;
         @include center();
-        align-items: flex-start;
-        background-color: rgb(245, 245, 230);
         flex-direction: column;
-        @include subtitle();
-        gap:2em;
-    
-        .blm{
-            padding: 5%;
-            width: 100%;
-            height: auto;
-            background:  linear-gradient(rgb(15, 15, 15) 45%, rgb(68 ,80 ,83) 100%);
-            color: white;
-            font-weight: bold;
-            h2{
-                font-size: 3rem;
-                word-break: break-all;
-
-            }
-            @include paragraph();
-            p{
-                font-size: 3rem;
-                font-weight: 100;
-                word-break: normal;
-
-                text-align: justify;
-            }
+        img {
+          width: 100px;
+          height: 100px;
         }
-        .pride{
-            padding: 5%;
-            width: 100%;
-            height: auto;
-            background: linear-gradient(90deg, #f000009d, #f000009d 16.67%, #ff8000b4 16.67%, #ff8000b4 33.33%, #ffff00b6 33.33%, #ffff00b6 50%, #007940 50%, #007940 66.67%, #4040ffc9 66.67%, #4040ffc9 83.33%, #a000c0a6 83.33%, #a000c0a6) fixed;            
-            color: rgb(0, 0, 0);
-            font-weight: bold;
-            h2{
-                font-size: 3rem;
-                word-break: normal;
-
-            }
-            @include paragraph();
-
-            p{
-                font-size: 3rem;
-                text-align: center;
-               font-weight: 100;
-            }
-            .images{
-                width: 100%;
-                height: auto;
-                gap: 1em;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-wrap: wrap;
-                img{
-                    width: 340px;
-                    max-width: 100%;
-                    height: 200px;
-                    border-radius: 10px;
-                }
-            }
+        p {
+          font-size: 1.5rem;
         }
-
+        a {
+          cursor: pointer;
+          color: blue;
+          font-size: 0.8rem;
+        }
+      }
     }
-    
+  }
+  .social {
+    width: 100%;
+    height: auto;
+    padding: 5%;
+    display: flex;
+    @include center();
+    align-items: flex-start;
+    background-color: rgb(245, 245, 230);
+    flex-direction: column;
+    @include subtitle();
+    gap: 2em;
+
+    .blm {
+      padding: 5%;
+      width: 100%;
+      height: auto;
+      background: linear-gradient(rgb(15, 15, 15) 45%, rgb(68, 80, 83) 100%);
+      color: white;
+      font-weight: bold;
+      h2 {
+        font-size: 3rem;
+        word-break: break-all;
+      }
+      @include paragraph();
+      p {
+        font-size: 3rem;
+        font-weight: 100;
+        word-break: normal;
+
+        text-align: justify;
+      }
+    }
+    .pride {
+      padding: 5%;
+      width: 100%;
+      height: auto;
+      background: linear-gradient(
+          90deg,
+          #f000009d,
+          #f000009d 16.67%,
+          #ff8000b4 16.67%,
+          #ff8000b4 33.33%,
+          #ffff00b6 33.33%,
+          #ffff00b6 50%,
+          #007940 50%,
+          #007940 66.67%,
+          #4040ffc9 66.67%,
+          #4040ffc9 83.33%,
+          #a000c0a6 83.33%,
+          #a000c0a6
+        )
+        fixed;
+      color: rgb(0, 0, 0);
+      font-weight: bold;
+      h2 {
+        font-size: 3rem;
+        word-break: normal;
+      }
+      @include paragraph();
+
+      p {
+        font-size: 3rem;
+        text-align: center;
+        font-weight: 100;
+      }
+      .images {
+        width: 100%;
+        height: auto;
+        gap: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        img {
+          width: 340px;
+          max-width: 100%;
+          height: 200px;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
 }

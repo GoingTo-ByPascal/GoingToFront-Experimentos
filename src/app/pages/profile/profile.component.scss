@@ -1,13 +1,14 @@
-@import 'src/assets/css/styles.scss';
+@import "src/assets/css/styles.scss";
 
-.profile-container{
-    width: 380px;
-    height: 400px;
-    padding: 5%;
-    @include center();
-    @include title();
-    h1{
-        font-size: 2rem;
-    }
-    flex-direction: column;
+.profile-container {
+  width: 380px;
+  height: auto;
+  padding: 5%;
+
+  @include center();
+  @include title();
+  h1 {
+    font-size: 2rem;
+  }
+  flex-direction: column;
 }

@@ -37,8 +37,6 @@ import {DialogforsigninComponent} from "./pages/dialog/dialogforsignin/dialogfor
     LocatableDetailComponent,
     SubheaderComponent,
     DialogforsigninComponent
-
-
   ],
   imports: [
     BrowserModule,
@@ -46,10 +44,10 @@ import {DialogforsigninComponent} from "./pages/dialog/dialogforsignin/dialogfor
     FontAwesomeModule,
     BrowserAnimationsModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   entryComponents: [ DialogforsigninComponent],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

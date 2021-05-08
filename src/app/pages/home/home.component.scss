@@ -22,7 +22,7 @@
             flex-direction: column;
             text-align: center;
             color: white;
-           @include button();
+           @include Button();
            @include title();
           
         }

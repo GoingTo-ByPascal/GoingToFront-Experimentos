@@ -1,8 +1,6 @@
 .appbar{
     height: 80px;
-    background: linear-gradient(
-        90deg
-        ,#aee9ee,#94bbe9);
+    background: #3490de;
     display: flex;
     padding: 0 5% 0 5%;
     .logo{
@@ -47,6 +45,7 @@
                
                 .dropdown{
                     background-color: transparent;
+                    
                     button{
                         border: none;
                         background-color: transparent;
@@ -57,10 +56,20 @@
                             font-size: 25px;
                         }
                     }
+                    
                 }
                 .dropdown-menu{
                  padding: 0;
+                 
+                 .content{
+                    position: relative;
+                    border: 1px solid;
+                    border-radius: 5px;
+                 }
+              
+                 
                 }
+               
 
                 @media screen and (max-width:900px) {
                     p{

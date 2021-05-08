@@ -1,8 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { faMailBulk, faUnlock, faUser } from '@fortawesome/free-solid-svg-icons';
 import {LoginService} from "../../../services/login.service";
 import {Observable} from "rxjs";
 import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-login',
@@ -17,13 +19,16 @@ export class LoginComponent implements OnInit {
 
   @Output() register: EventEmitter<boolean> = new EventEmitter();
   loginForm:FormGroup;
+  faMail = faMailBulk;
+  faPassword = faUnlock
+
   ngOnInit(): void {
     this.initialize();
 
   }
   initialize(){
     this.loginForm = new FormGroup({
-      user: new FormControl('',[Validators.required]),
+      email: new FormControl('',[Validators.required,Validators.email]),
       password: new FormControl('',[Validators.required])
     })
   }

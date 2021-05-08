@@ -9,4 +9,5 @@ export class Place{
     locatable:Locatable;
     city:City;
     country:Country;
+    isFavorite: boolean = false
 }

@@ -24,10 +24,8 @@
         class="menu"
         [routerLink]="['login']"
         *ngIf="!authenticationService.loggedIn()"
-      >
-        <p>Iniciar sesión</p>
-      </li>
-      <li class="menu" style="display: none">
+      ></li>
+      <li class="menu">
         <div class="dropdown">
           <button
             class="btn btn-secondary dropdown-toggle"

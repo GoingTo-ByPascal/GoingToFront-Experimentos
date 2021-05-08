@@ -8,6 +8,7 @@ import {
 import { LoginService } from '../../../services/login.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +17,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   token: any;
-  email: string;
-  password: string;
-  constructor(private loginService: LoginService, private router: Router) {}
+
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private notificationService: NotificationService
+  ) {}
 
   @Output() register: EventEmitter<boolean> = new EventEmitter();
   loginForm: FormGroup;
@@ -39,18 +43,26 @@ export class LoginComponent implements OnInit {
     this.register.emit();
   }
   onLogin() {
-    this.email = this.loginForm.value.user;
-    this.password = this.loginForm.value.password;
-    this.loginService
-      .authenticate(this.email, this.password)
-      .subscribe((response: any) => {
+    let email = this.loginForm.get('email').value;
+    let password = this.loginForm.get('password').value;
+    this.loginService.authenticate(email, password).subscribe(
+      (response: any) => {
+        this.notificationService.OpenSnackbar(
+          'Ha iniciado sesión correctamente'
+        );
         this.token = response;
         if (this.token) {
           this.router
             .navigateByUrl('/', { skipLocationChange: true })
             .then(() => this.router.navigate(['home']));
         }
-      });
+      },
+      (error) => {
+        this.notificationService.OpenSnackbar(
+          'Las credenciales ingresadas son incorrectas'
+        );
+      }
+    );
   }
   redirectTo(uri: string) {}
 }

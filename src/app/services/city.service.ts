@@ -11,6 +11,9 @@ export class CityService {
   URI: string = `${environment.HOST_URL}/cities`
   constructor(private http:HttpClient) { }
 
+  getAllCities() {
+    return this.http.get<City[]>(this.URI);
+  }
   getPlacesByCity(cityId:string){
     return this.http.get<City[]>(`${this.URI}/${cityId}/places`);
   }

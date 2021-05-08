@@ -22,6 +22,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   imports: [  ],
@@ -48,7 +49,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatRadioModule,
     MatMenuModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatDialogModule
   ]
 })
 export class AngularMaterialModule { }

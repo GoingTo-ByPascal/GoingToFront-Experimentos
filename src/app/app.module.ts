@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { StarsComponent } from './pages/search/stars/stars.component';
 import { LocatableDetailComponent } from './pages/explore/locatable-detail/locatable-detail.component';
 import { SubheaderComponent } from './pages/subheader/subheader.component';
+import {DialogforsigninComponent} from "./pages/dialog/dialogforsignin/dialogforsignin.component";
 
 @NgModule({
   declarations: [
@@ -34,8 +35,10 @@ import { SubheaderComponent } from './pages/subheader/subheader.component';
     RegisterComponent,
     StarsComponent,
     LocatableDetailComponent,
-    SubheaderComponent
-  
+    SubheaderComponent,
+    DialogforsigninComponent
+
+
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { SubheaderComponent } from './pages/subheader/subheader.component';
     AngularMaterialModule,
     HttpClientModule
   ],
+  entryComponents: [ DialogforsigninComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

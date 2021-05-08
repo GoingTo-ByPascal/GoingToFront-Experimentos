@@ -6,4 +6,5 @@ export class City{
     name:string;
     locatable:Locatable;
     country:Country
+    isFavorite: boolean = false
 }

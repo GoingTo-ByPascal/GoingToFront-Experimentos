@@ -22,7 +22,7 @@
                      <h2>Please select a country</h2>
                  </ng-template>
             </ul>
-            
+
         </div>
         <div class="place">
             <h1>Place</h1>
@@ -42,9 +42,8 @@
         <div class="tab">
             <h1>Tips</h1>
             <ul *ngIf="tips.length > 0;else NoData">
-                <li >
+                <li>
                     {{tips[0].text}}
-                    
                 </li>
                 <li class="button">
                     <button (click)="redirectTo('locate',tips[0].locatable.id)">

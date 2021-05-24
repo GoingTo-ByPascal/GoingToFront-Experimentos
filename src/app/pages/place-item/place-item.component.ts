@@ -11,6 +11,7 @@ import { any } from 'codelyzer/util/function';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogforsigninComponent } from '../dialog/dialogforsignin/dialogforsignin.component';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-place-item',
@@ -24,7 +25,8 @@ export class PlaceItemComponent implements OnInit {
     private placeService: PlaceService,
     private favoriteService: FavoriteService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private notificationService: NotificationService
   ) {}
 
   countries: Country[] = [];
@@ -34,6 +36,10 @@ export class PlaceItemComponent implements OnInit {
   favoriteByUserId: Favorite[] = [];
   favorite: Favorite[] = [];
   ngOnInit(): void {
+    this.initalize();
+  }
+
+  initalize() {
     this.id = sessionStorage.getItem('userid');
     this.countryService.getAllCountries().subscribe((response: any) => {
       this.countries = response;
@@ -100,10 +106,57 @@ export class PlaceItemComponent implements OnInit {
       .then(() => this.router.navigate([uri, param]));
   }
 
+  verifyFavorite(favorite: [any]) {
+    console.log('Favoritos');
+
+    var favoriteCountries = favorite.filter(
+      (element) => element.locatableTypeId == 1
+    );
+    var favoriteCitites = favorite.filter(
+      (element) => element.locatableTypeId == 2
+    );
+    var favoritePlaces = favorite.filter(
+      (element) => element.locatableTypeId == 3
+    );
+
+    this.countries.forEach((element) => {
+      element.isFavorite = false;
+    });
+    this.cities.forEach((element) => {
+      element.isFavorite = false;
+    });
+    this.places.forEach((element) => {
+      element.isFavorite = false;
+    });
+
+    for (let i = 0; i < this.countries.length; i++) {
+      for (let j = 0; j < favoriteCountries.length; j++) {
+        if (this.countries[i].locatable.id == favoriteCountries[j].id) {
+          this.countries[i].isFavorite = true;
+        }
+      }
+    }
+
+    for (let i = 0; i < this.cities.length; i++) {
+      for (let j = 0; j < favoriteCitites.length; j++) {
+        if (this.cities[i].locatable.id == favoriteCitites[j].id) {
+          this.cities[i].isFavorite = true;
+        }
+      }
+    }
+
+    for (let i = 0; i < this.places.length; i++) {
+      for (let j = 0; j < favoritePlaces.length; j++) {
+        if (this.places[i].locatable.id == favoritePlaces[j].id) {
+          this.places[i].isFavorite = true;
+        }
+      }
+    }
+  }
+
   toAssingFavorite(locatableId: string) {
     if (sessionStorage.getItem('token')) {
       this.id = sessionStorage.getItem('userid');
-      console.log(this.id);
       this.favoriteService
         .getFavoriteByUserId(this.id)
         .subscribe((response: any) => {
@@ -112,7 +165,27 @@ export class PlaceItemComponent implements OnInit {
             this.favoriteService
               .addFavorite(this.id, locatableId)
               .subscribe(() => {
-                this.itsfavorite();
+                this.favoriteService
+                  .getFavoriteByUserId(this.id)
+                  .subscribe((response: any) => {
+                    this.verifyFavorite(response);
+                    this.notificationService.OpenSnackbar(
+                      'Se ha agregado a favoritos correctamente'
+                    );
+                  });
+              });
+          } else {
+            this.favoriteService
+              .deleteFavorite(this.id, locatableId)
+              .subscribe((response: any) => {
+                this.favoriteService
+                  .getFavoriteByUserId(this.id)
+                  .subscribe((response: any) => {
+                    this.verifyFavorite(response);
+                    this.notificationService.OpenSnackbar(
+                      'Se ha eliminado de favoritos correctamente'
+                    );
+                  });
               });
           }
         });
@@ -143,7 +216,6 @@ export class PlaceItemComponent implements OnInit {
       .getFavoriteByUserId(this.id)
       .subscribe((response: any) => {
         this.favoriteByUserId = response;
-        console.log(this.favoriteByUserId);
       });
   }
 }

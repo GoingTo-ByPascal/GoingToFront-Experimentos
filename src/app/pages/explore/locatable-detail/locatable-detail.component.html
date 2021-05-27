@@ -1,50 +1,67 @@
 <div class="locate-detail">
-    <app-subheader  class="subheader" [title]="locatable.address" [image]="'FADSFASDF'" ></app-subheader>
-    <div class="content">
-
-        <div class="description">
-            <h1>Description</h1>
-            <p>{{locatable.description}}</p>
-            
+  <app-subheader
+    class="subheader"
+    [title]="locatable.address"
+    [image]="locatable.bannerImage"
+  ></app-subheader>
+  <div class="content">
+    <div class="left-column">
+      <div class="description">
+        <mat-icon
+          *ngIf="!isFavorite"
+          (click)="assignFavorite()"
+          class="notFavorite"
+          >favorite</mat-icon
+        >
+        <mat-icon *ngIf="isFavorite" (click)="assignFavorite()" class="favorite"
+          >favorite</mat-icon
+        >
+        <h1>Description</h1>
+        <p>{{ locatable.description }}</p>
+      </div>
+      <div class="tabs">
+        <div class="tab">
+          <h1>Tips</h1>
+          <ul *ngIf="tips.length > 0; else NoData1">
+            <li *ngFor="let tip of tips">
+              {{ tip.text }}
+            </li>
+          </ul>
+          <ng-template #NoData1>
+            <h2>There are no avalible tips right now</h2>
+          </ng-template>
         </div>
-
-        <div class="tabs">
-            <div class="tab">
-                <h1>Tips</h1>
-                <ul *ngIf="tips.length > 0;else NoData1">
-                    <li *ngFor="let tip of tips" >
-                        {{tip.text}}
-                    </li>
-                  
-                </ul>
-                <ng-template #NoData1>
-                    <h2>There are no avalible tips right now</h2>
-                </ng-template>
-            </div>
-            <div class="tab">
-                <h1>Reviews</h1>
-                <ul *ngIf="reviews.length > 0;else NoData2">
-                    <li *ngFor="let review of reviews">
-                        {{review.comment}} <app-stars [starsquantity]="review.stars"></app-stars>
-                    </li>
-                   
-                </ul>
-                <ng-template #NoData2>
-                    <h2>There are no avalible reviews right now</h2>
-                </ng-template>
-            </div>
-            <div class="tab">
-                <h1>Promos</h1>
-                <ul *ngIf="promos.length > 0;else NoData">
-                    <li *ngFor="let promo of promos">
-                        {{promo.text | titlecase}}.  Descuento de {{promo.discount | percent}}
-                    </li>
-                   
-                </ul>
-                <ng-template #NoData>
-                    <h2>There are no avalible promos right now</h2>
-                </ng-template>
-            </div>
+        <div class="tab">
+          <h1>Reviews</h1>
+          <ul *ngIf="reviews.length > 0; else NoData2">
+            <li *ngFor="let review of reviews">
+              {{ review.comment }}
+              <app-stars [starsquantity]="review.stars"></app-stars>
+            </li>
+          </ul>
+          <ng-template #NoData2>
+            <h2>There are no avalible reviews right now</h2>
+          </ng-template>
         </div>
+        <div class="tab">
+          <h1>Promos</h1>
+          <ul *ngIf="promos.length > 0; else NoData">
+            <li *ngFor="let promo of promos">
+              {{ promo.text | titlecase }}. Descuento de
+              {{ promo.discount | percent }}
+            </li>
+          </ul>
+          <ng-template #NoData>
+            <h2>There are no avalible promos right now</h2>
+          </ng-template>
+        </div>
+      </div>
     </div>
+    <div class="right-column">
+      <h1>Images</h1>
+      <div class="images" *ngFor="let image of locatable.locatableImages">
+        <img src="{{ image.url }}" />
+      </div>
+    </div>
+  </div>
 </div>

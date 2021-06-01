@@ -11,7 +11,7 @@
   position: relative;
   justify-content: flex-start;
   .places {
-    width: 50%;
+    width: 100%;
     height: auto;
 
     @include title();
@@ -35,6 +35,9 @@
 }
 @media screen and (max-width: 900px) {
   .explore {
+    h1 {
+      font-size: 3rem;
+    }
     .places {
       width: 100%;
       align-items: center;

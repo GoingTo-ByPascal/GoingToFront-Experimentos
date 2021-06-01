@@ -13,18 +13,7 @@
       <li class="menu" [routerLink]="['explore']">
         <p>Explore</p>
       </li>
-      <li
-        class="menu"
-        *ngIf="authenticationService.loggedIn()"
-        (click)="logout()"
-      >
-        <p>Cerrar sesion</p>
-      </li>
-      <li
-        class="menu"
-        [routerLink]="['login']"
-        *ngIf="!authenticationService.loggedIn()"
-      ></li>
+
       <li class="menu">
         <div class="dropdown">
           <button

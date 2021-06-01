@@ -16,8 +16,4 @@ export class AppbarComponent implements OnInit {
   faCoffee = faUser;
   isLogged: boolean = false;
   ngOnInit(): void {}
-  logout(): void {
-    sessionStorage.clear();
-    this.router.navigate(['/login']).then(() => {});
-  }
 }

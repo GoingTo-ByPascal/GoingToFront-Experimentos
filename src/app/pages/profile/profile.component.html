@@ -2,9 +2,17 @@
   <app-login
     *ngIf="ActiveScreen[0]"
     (register)="ActivateRegister()"
+    (isLogged)="ActivateProfile()"
   ></app-login>
   <app-register
     *ngIf="ActiveScreen[1]"
     (login)="ActivateLogin()"
   ></app-register>
+  <div class="profile" *ngIf="ActiveScreen[2]">
+    <h1>User {{ this.userId }} You are already logged in</h1>
+    <button (click)="logout()">Sign Out</button>
+    <button class="alternateButton" (click)="goProfileDetail()">
+      See Profile
+    </button>
+  </div>
 </div>

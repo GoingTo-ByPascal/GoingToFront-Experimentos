@@ -28,4 +28,12 @@ export class LoginService {
       return false;
     }
   }
+  getUserId() {
+    return sessionStorage.getItem('userid');
+  }
+
+  logOut() {
+    sessionStorage.removeItem('userid');
+    sessionStorage.removeItem('token');
+  }
 }

@@ -1,83 +1,97 @@
 <div class="container">
-  <div class="item" *ngFor="let item of this.countries | slice: 0:3">
-    <div class="box">
-      <img [src]="item.image" />
-      <div class="overlay">
-        <div class="content">
-          <h2 (click)="redirectTo('locate', item.locatable.id)">
-            {{ item.fullName }}
-          </h2>
+  <div class="countries">
+    <h2>Countries</h2>
+    <div class="list">
+      <div class="item" *ngFor="let item of this.countries | slice: 0:3">
+        <div class="box">
+          <img [src]="item.image" />
+          <div class="overlay">
+            <div class="content">
+              <h2 (click)="redirectTo('locate', item.locatable.id)">
+                {{ item.fullName }}
+              </h2>
+            </div>
+            <div class="icons">
+              <mat-icon
+                class="notFavorite"
+                (click)="toAssingFavorite(item.locatable.id)"
+                *ngIf="item.isFavorite != true"
+                >favorite</mat-icon
+              >
+              <mat-icon
+                class="favorite"
+                (click)="toAssingFavorite(item.locatable.id)"
+                *ngIf="item.isFavorite == true"
+                >favorite</mat-icon
+              >
+              <mat-icon>share</mat-icon>
+            </div>
+          </div>
         </div>
-        <div class="icons">
-          <mat-icon
-            class="notFavorite"
-            (click)="toAssingFavorite(item.locatable.id)"
-            *ngIf="item.isFavorite != true"
-            >favorite</mat-icon
-          >
-          <mat-icon
-            class="favorite"
-            (click)="toAssingFavorite(item.locatable.id)"
-            *ngIf="item.isFavorite == true"
-            >favorite</mat-icon
-          >
-          <mat-icon>share</mat-icon>
+      </div>
+    </div>
+  </div>
+  <div class="citites">
+    <h2>Cities</h2>
+    <div class="list">
+      <div class="item" *ngFor="let item of this.cities | slice: 0:3">
+        <div class="box">
+          <img [src]="item.image" />
+          <div class="overlay">
+            <div class="content">
+              <h2 (click)="redirectTo('locate', item.locatable.id)">
+                {{ item.name }}
+              </h2>
+            </div>
+            <div class="icons">
+              <mat-icon
+                class="notFavorite"
+                (click)="toAssingFavorite(item.locatable.id)"
+                *ngIf="item.isFavorite != true"
+                >favorite</mat-icon
+              >
+              <mat-icon
+                class="favorite"
+                (click)="toAssingFavorite(item.locatable.id)"
+                *ngIf="item.isFavorite == true"
+                >favorite</mat-icon
+              >
+              <mat-icon>share</mat-icon>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="item" *ngFor="let item of this.cities | slice: 0:3">
-    <div class="box">
-      <img [src]="item.image" />
-      <div class="overlay">
-        <div class="content">
-          <h2 (click)="redirectTo('locate', item.locatable.id)">
-            {{ item.name }}
-          </h2>
-        </div>
-        <div class="icons">
-          <mat-icon
-            class="notFavorite"
-            (click)="toAssingFavorite(item.locatable.id)"
-            *ngIf="item.isFavorite != true"
-            >favorite</mat-icon
-          >
-          <mat-icon
-            class="favorite"
-            (click)="toAssingFavorite(item.locatable.id)"
-            *ngIf="item.isFavorite == true"
-            >favorite</mat-icon
-          >
-          <mat-icon>share</mat-icon>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="item" *ngFor="let item of this.places | slice: 0:3">
-    <div class="box">
-      <img [src]="item.image" />
-      <div class="overlay">
-        <div class="content">
-          <h2 (click)="redirectTo('locate', item.locatable.id)">
-            {{ item.name }}
-          </h2>
-        </div>
-        <div class="icons">
-          <mat-icon
-            class="notFavorite"
-            (click)="toAssingFavorite(item.locatable.id)"
-            *ngIf="item.isFavorite != true"
-            >favorite</mat-icon
-          >
-          <mat-icon
-            class="favorite"
-            (click)="toAssingFavorite(item.locatable.id)"
-            *ngIf="item.isFavorite == true"
-            >favorite</mat-icon
-          >
-          <mat-icon>share</mat-icon>
+  <div class="places">
+    <h2>Places</h2>
+    <div class="list">
+      <div class="item" *ngFor="let item of this.places | slice: 0:3">
+        <div class="box">
+          <img [src]="item.image" />
+          <div class="overlay">
+            <div class="content">
+              <h2 (click)="redirectTo('locate', item.locatable.id)">
+                {{ item.name }}
+              </h2>
+            </div>
+            <div class="icons">
+              <mat-icon
+                class="notFavorite"
+                (click)="toAssingFavorite(item.locatable.id)"
+                *ngIf="item.isFavorite != true"
+                >favorite</mat-icon
+              >
+              <mat-icon
+                class="favorite"
+                (click)="toAssingFavorite(item.locatable.id)"
+                *ngIf="item.isFavorite == true"
+                >favorite</mat-icon
+              >
+              <mat-icon>share</mat-icon>
+            </div>
+          </div>
         </div>
       </div>
     </div>

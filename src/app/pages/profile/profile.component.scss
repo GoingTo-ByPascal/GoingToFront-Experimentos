@@ -11,4 +11,21 @@
     font-size: 2rem;
   }
   flex-direction: column;
+  .profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    @include Button();
+    button {
+      margin-bottom: 20px;
+    }
+    .alternateButton {
+      background-color: #82adf7;
+      color: black;
+    }
+    .alternateButton:hover {
+      background-color: #82adf7;
+    }
+  }
 }

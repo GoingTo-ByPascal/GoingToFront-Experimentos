@@ -49,7 +49,10 @@
     </div>
 
     <div class="form-controller">
-      <button id="loginButton" (click)="onLogin()">Ingresar</button>
+      <button id="loginButton" (click)="onLogin()">
+        <div class="loader" *ngIf="isLoading"></div>
+        <p *ngIf="!isLoading">Ingresar</p>
+      </button>
     </div>
     <hr class="solid" />
 

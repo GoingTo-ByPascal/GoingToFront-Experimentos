@@ -22,6 +22,7 @@ import { LocatableDetailComponent } from './pages/explore/locatable-detail/locat
 import { SubheaderComponent } from './pages/subheader/subheader.component';
 import { DialogforsigninComponent } from './pages/dialog/dialogforsignin/dialogforsignin.component';
 import { RouterModule } from '@angular/router';
+import { ProfileDetailComponent } from './pages/profile/profile-detail/profile-detail.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { RouterModule } from '@angular/router';
     AppbarComponent,
     HomeComponent,
     ExploreComponent,
+    ProfileDetailComponent,
     SearchComponent,
     PlaceItemComponent,
     RightDrawerComponent,

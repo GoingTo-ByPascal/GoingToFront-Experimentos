@@ -25,8 +25,10 @@ export class LoginComponent implements OnInit {
   ) {}
 
   @Output() register: EventEmitter<boolean> = new EventEmitter();
+  @Output() isLogged: EventEmitter<boolean> = new EventEmitter();
   loginForm: FormGroup;
   faMail = faMailBulk;
+  isLoading = false;
   faPassword = faUnlock;
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ export class LoginComponent implements OnInit {
     this.register.emit();
   }
   onLogin() {
+    this.isLoading = true;
     let email = this.loginForm.get('email').value;
     let password = this.loginForm.get('password').value;
     this.loginService.authenticate(email, password).subscribe(
@@ -50,17 +53,20 @@ export class LoginComponent implements OnInit {
         this.notificationService.OpenSnackbar(
           'Ha iniciado sesión correctamente'
         );
+        this.isLogged.emit(true);
         this.token = response;
         if (this.token) {
           this.router
             .navigateByUrl('/', { skipLocationChange: true })
             .then(() => this.router.navigate(['home']));
+          this.isLoading = false;
         }
       },
       (error) => {
         this.notificationService.OpenSnackbar(
           'Las credenciales ingresadas son incorrectas'
         );
+        this.isLoading = false;
       }
     );
   }

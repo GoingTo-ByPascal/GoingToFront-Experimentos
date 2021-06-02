@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit {
             .navigateByUrl('/', { skipLocationChange: true })
             .then(() => this.router.navigate(['home']));
           this.isLoading = false;
+          window.location.reload();
         }
       },
       (error) => {

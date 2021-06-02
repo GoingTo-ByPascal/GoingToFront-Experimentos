@@ -28,7 +28,6 @@ export class ProfileDetailComponent implements OnInit {
         this.userReviews = response;
       });
       this.userService.getUserAchievements(userId).subscribe((response) => {
-        console.log(this.userAchievements);
         this.userAchievements = response;
       });
     }

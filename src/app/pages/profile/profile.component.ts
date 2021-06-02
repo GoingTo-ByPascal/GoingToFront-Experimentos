@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,15 +11,20 @@ import { LoginService } from 'src/app/services/login.service';
 export class ProfileComponent implements OnInit {
   ActiveScreen: boolean[] = [true, false, false];
   userId: string;
+  userName: string;
   constructor(
     private authenticationService: LoginService,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     if (this.authenticationService.loggedIn()) {
       this.ActivateProfile();
       this.userId = this.authenticationService.getUserId();
+      this.userService.getUserInfo(this.userId).subscribe((response) => {
+        this.userName = response.name + ' ' + response.surname;
+      });
     } else {
       this.ActivateLogin();
     }
@@ -42,7 +48,6 @@ export class ProfileComponent implements OnInit {
     this.ActivateLogin();
   }
   goProfileDetail() {
-    console.log('test');
     this.router.navigate(['profile', this.userId]);
   }
 }

@@ -9,7 +9,7 @@
     (login)="ActivateLogin()"
   ></app-register>
   <div class="profile" *ngIf="ActiveScreen[2]">
-    <h1>User {{ this.userId }} You are already logged in</h1>
+    <h1>User {{ this.userName }} You are already logged in</h1>
     <button (click)="logout()">Sign Out</button>
     <button class="alternateButton" (click)="goProfileDetail()">
       See Profile

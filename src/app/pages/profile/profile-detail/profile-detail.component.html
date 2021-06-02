@@ -1,1 +1,44 @@
-<p>profile-detail works!</p>
+<div class="profile-detail">
+  <div class="profile-picture">
+    <div class="profile-card mat-elevation-z8">
+      <div class="image mat-elevation-z4">
+        <img src="{{ userData?.profilePhoto }}" />
+      </div>
+      <hr class="solid" />
+
+      <div class="achievements">
+        <ul>
+          <li>
+            <mat-icon style="color: orange">reviews</mat-icon>
+            {{ userReviews?.length }} Reviews
+          </li>
+          <li>
+            <mat-icon style="color: rgb(101, 172, 99)">flag</mat-icon
+            >{{ userData?.country?.fullName }}
+          </li>
+          <li>
+            <mat-icon style="color: rgb(255, 108, 132)">cake</mat-icon
+            >{{ userData?.birthDate | date }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="profile-info">
+    <h1>Hi I'm {{ userData?.name }}</h1>
+    <h2>My Reviews</h2>
+    <div class="reviews">
+      <div class="item" *ngFor="let review of userReviews | slice: 0:3">
+        <p>
+          {{ review.comment }}
+          <app-stars [starsquantity]="review.stars"></app-stars>
+        </p>
+      </div>
+      <h2>My Achievements</h2>
+      <div class="item" *ngFor="let achievement of userAchievements">
+        <p>{{ achievement.name }}</p>
+        <p>{{ achievement.text }}</p>
+      </div>
+    </div>
+  </div>
+</div>

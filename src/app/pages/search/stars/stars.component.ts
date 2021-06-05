@@ -16,4 +16,11 @@ export class StarsComponent implements OnInit {
     this.starsquantity = Math.round(this.starsquantity);
     this.array = Array(this.starsquantity).fill('');
   }
+  ngOnChanges() {
+    if (this.starsquantity == null) {
+      this.starsquantity = 0;
+    }
+    this.starsquantity = Math.round(this.starsquantity);
+    this.array = Array(this.starsquantity).fill('');
+  }
 }

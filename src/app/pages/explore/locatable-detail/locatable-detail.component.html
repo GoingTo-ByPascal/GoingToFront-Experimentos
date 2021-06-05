@@ -7,15 +7,27 @@
   <div class="content">
     <div class="left-column">
       <div class="description">
-        <mat-icon
-          *ngIf="!isFavorite"
-          (click)="assignFavorite()"
-          class="notFavorite"
-          >favorite</mat-icon
-        >
-        <mat-icon *ngIf="isFavorite" (click)="assignFavorite()" class="favorite"
-          >favorite</mat-icon
-        >
+        <div class="icons">
+          <mat-icon
+            class="review"
+            *ngIf="activateReview"
+            (click)="createReview()"
+            >reviews</mat-icon
+          >
+          <mat-icon
+            *ngIf="!isFavorite"
+            (click)="assignFavorite()"
+            class="notFavorite"
+            >favorite</mat-icon
+          >
+          <mat-icon
+            *ngIf="isFavorite"
+            class="favorite"
+            (click)="assignFavorite()"
+            >favorite</mat-icon
+          >
+        </div>
+
         <h1>Description</h1>
         <p>{{ locatable.description }}</p>
       </div>

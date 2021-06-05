@@ -58,10 +58,14 @@
   }
   .profile-info {
     padding: 5%;
+    @include Button();
     @include subtitle();
     @include title();
     width: 50%;
     display: flex;
+    mat-icon {
+      cursor: pointer;
+    }
     flex-direction: column;
     h2 {
       text-align: left;

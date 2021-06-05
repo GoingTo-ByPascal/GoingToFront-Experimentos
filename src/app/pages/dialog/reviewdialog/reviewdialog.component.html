@@ -1,0 +1,61 @@
+<div class="review-dialog">
+  <h1>Create a Review</h1>
+  <form [formGroup]="reviewForm" (onSubmit)="createReview()">
+    <div class="form-controller">
+      <label>Rewiew</label>
+      <div class="form-container">
+        <textarea placeholder="Review" formControlName="review"></textarea>
+      </div>
+      <p
+        class="error"
+        *ngIf="
+          reviewForm.get('review').errors && reviewForm.get('review').touched
+        "
+      >
+        Please type a review
+      </p>
+      <p
+        class="error"
+        *ngIf="
+          reviewForm.get('review').errors?.maxlength &&
+          reviewForm.get('review').touched
+        "
+      >
+        Please the max length of the review is 45
+      </p>
+    </div>
+    <div class="form-controller">
+      <label>Stars</label>
+      <div class="form-container">
+        <input placeholder="Stars" formControlName="stars" type="number" />
+      </div>
+      <p
+        class="error"
+        *ngIf="
+          reviewForm.get('stars').errors?.required &&
+          reviewForm.get('stars').touched
+        "
+      >
+        Please type the amount of stars
+      </p>
+      <p
+        class="error"
+        *ngIf="
+          reviewForm.get('stars').errors?.min && reviewForm.get('stars').touched
+        "
+      >
+        Please type the amount have to be more than 0
+      </p>
+      <p
+        class="error"
+        *ngIf="
+          reviewForm.get('stars').errors?.max && reviewForm.get('stars').touched
+        "
+      >
+        Please type the amount have to be less than 6
+      </p>
+    </div>
+    <app-stars [starsquantity]="reviewForm.get('stars').value"></app-stars>
+    <button (click)="createReview()">Create a Review</button>
+  </form>
+</div>

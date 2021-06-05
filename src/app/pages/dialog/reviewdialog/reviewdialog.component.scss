@@ -1,0 +1,27 @@
+@import "src/assets/css/styles.scss";
+.review-dialog {
+  @include title();
+  @include form-controller(
+    (
+      Properties: (
+        height: 40px,
+      ),
+    )
+  );
+  @include Button();
+  form {
+    .form-controller {
+      .form-container {
+        padding-right: 5%;
+
+        textarea {
+          height: 100px;
+          border: none;
+        }
+      }
+    }
+    button {
+      width: 100%;
+    }
+  }
+}

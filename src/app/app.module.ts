@@ -23,6 +23,7 @@ import { SubheaderComponent } from './pages/subheader/subheader.component';
 import { DialogforsigninComponent } from './pages/dialog/dialogforsignin/dialogforsignin.component';
 import { RouterModule } from '@angular/router';
 import { ProfileDetailComponent } from './pages/profile/profile-detail/profile-detail.component';
+import { ReviewdialogComponent } from './pages/dialog/reviewdialog/reviewdialog.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ProfileDetailComponent } from './pages/profile/profile-detail/profile-d
     LocatableDetailComponent,
     SubheaderComponent,
     DialogforsigninComponent,
+    ReviewdialogComponent,
   ],
   imports: [
     BrowserModule,

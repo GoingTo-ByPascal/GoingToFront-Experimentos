@@ -28,12 +28,29 @@
     <h1>Hi I'm {{ userData?.name }}</h1>
     <h2>My Reviews</h2>
     <div class="reviews">
-      <div class="item" *ngFor="let review of userReviews | slice: 0:3">
-        <p>
-          {{ review.comment }}
-          <app-stars [starsquantity]="review.stars"></app-stars>
-        </p>
-      </div>
+      <ng-container *ngIf="showReviews">
+        <div class="item" *ngFor="let review of userReviews">
+          <p>
+            <mat-icon (click)="deleteReview(review.id, review.locatable.id)"
+              >delete</mat-icon
+            >
+
+            {{ review.comment }}
+            <app-stars [starsquantity]="review.stars"></app-stars>
+          </p>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!showReviews">
+        <div class="item" *ngFor="let review of userReviews | slice: 0:3">
+          <p>
+            {{ review.comment }}
+            <app-stars [starsquantity]="review.stars"></app-stars>
+          </p>
+        </div>
+      </ng-container>
+
+      <button (click)="showAllReviews()">Show all reviews</button>
+
       <h2>My Achievements</h2>
       <div class="item" *ngFor="let achievement of userAchievements">
         <p>{{ achievement.name }}</p>

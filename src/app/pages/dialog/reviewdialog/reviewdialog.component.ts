@@ -46,10 +46,6 @@ export class ReviewdialogComponent implements OnInit {
       var body = {
         comment: this.reviewForm.get('review').value,
         stars: this.reviewForm.get('stars').value,
-<<<<<<< Updated upstream
-        reviewedAt: `${date.getFullYear()}-${date.getMonth()}-${date.getDay()}`,
-=======
->>>>>>> Stashed changes
       };
       this.reviewService
         .createReview(body, this.data.userId, this.data.locatableId)

@@ -34,9 +34,10 @@
             <mat-icon (click)="deleteReview(review.id, review.locatable.id)"
               >delete</mat-icon
             >
-
-            {{ review.comment }}
-            <app-stars [starsquantity]="review.stars"></app-stars>
+            <a id="review" (click)="editReview(review, review.locatableId)">
+              {{ review.comment }}
+              <app-stars [starsquantity]="review.stars"></app-stars>
+            </a>
           </p>
         </div>
       </ng-container>

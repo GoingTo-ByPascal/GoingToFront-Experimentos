@@ -21,4 +21,10 @@ export class ReviewService {
       `${this.URI}/${userProfileId}/locatables/${locatableId}/reviews/${reviewId}`
     );
   }
+  updateReview(locatableId, reviewId, userProfileId, body) {
+    return this.http.put(
+      `${this.URI}/${userProfileId}/locatables/${locatableId}/reviews/${reviewId}`,
+      body
+    );
+  }
 }

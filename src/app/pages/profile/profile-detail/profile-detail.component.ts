@@ -1,11 +1,13 @@
 import { ThrowStmt } from '@angular/compiler';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { UserProfile } from 'src/app/model/UserProfile';
 import { LoginService } from 'src/app/services/login.service';
 import { NotificationService } from 'src/app/services/notification.service';
 import { ReviewService } from 'src/app/services/review.service';
 import { UserService } from 'src/app/services/user.service';
+import { ReviewdialogComponent } from '../../dialog/reviewdialog/reviewdialog.component';
 
 @Component({
   selector: 'app-profile-detail',
@@ -21,7 +23,8 @@ export class ProfileDetailComponent implements OnInit {
     private authenticationService: LoginService,
     private userService: UserService,
     private reviewService: ReviewService,
-    private notificatonService: NotificationService
+    private notificatonService: NotificationService,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -55,5 +58,25 @@ export class ProfileDetailComponent implements OnInit {
         this.notificatonService.OpenSnackbar('Problem deleting the review');
       }
     );
+  }
+  editReview(review, locatableId) {
+    this.dialog
+      .open(ReviewdialogComponent, {
+        data: {
+          locatableId: locatableId,
+          userId: this.authenticationService.getUserId(),
+          review: review,
+        },
+        height: '400px',
+        width: '600px',
+      })
+      .afterClosed()
+      .subscribe(() => {
+        this.userService
+          .getUserReviews(this.authenticationService.getUserId())
+          .subscribe((response) => {
+            this.userReviews = response;
+          });
+      });
   }
 }

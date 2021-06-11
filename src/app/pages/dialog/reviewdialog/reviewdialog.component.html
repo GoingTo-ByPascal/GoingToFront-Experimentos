@@ -1,15 +1,21 @@
 <div class="review-dialog">
-  <h1>Create a Review</h1>
+  <h1 *ngIf="this.data.review">Edite a Review</h1>
+  <h1 *ngIf="!this.data.review">Create a Review</h1>
   <form [formGroup]="reviewForm" (onSubmit)="createReview()">
     <div class="form-controller">
-      <label>Rewiew</label>
+      <label>Review</label>
+
       <div class="form-container">
         <textarea placeholder="Review" formControlName="review"></textarea>
       </div>
+      <p id="characters" *ngIf="reviewForm.get('review').value.length > 0">
+        {{ reviewForm.get("review").value.length }} / 500
+      </p>
       <p
         class="error"
         *ngIf="
-          reviewForm.get('review').errors && reviewForm.get('review').touched
+          reviewForm.get('review').errors?.required &&
+          reviewForm.get('review').touched
         "
       >
         Please type a review
@@ -56,6 +62,11 @@
       </p>
     </div>
     <app-stars [starsquantity]="reviewForm.get('stars').value"></app-stars>
-    <button (click)="createReview()">Create a Review</button>
+    <button (click)="createReview()" *ngIf="!this.data.review">
+      Create a Review
+    </button>
+    <button (click)="editReview()" *ngIf="this.data.review">
+      Edit the Review
+    </button>
   </form>
 </div>

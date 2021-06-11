@@ -18,11 +18,12 @@ export class ReviewdialogComponent implements OnInit {
   ) {}
   reviewForm: FormGroup;
   testvalue: number = 0;
+
   ngOnInit(): void {
     this.reviewForm = new FormGroup({
       review: new FormControl('', [
         Validators.required,
-        Validators.maxLength(45),
+        Validators.maxLength(500),
       ]),
       stars: new FormControl(0, [
         Validators.required,
@@ -30,6 +31,13 @@ export class ReviewdialogComponent implements OnInit {
         Validators.max(5),
       ]),
     });
+
+    if (this.data.review != null) {
+      this.reviewForm.setValue({
+        review: this.data.review.comment,
+        stars: this.data.review.stars,
+      });
+    }
   }
   createReview() {
     if (this.reviewForm.valid) {
@@ -38,7 +46,6 @@ export class ReviewdialogComponent implements OnInit {
       var body = {
         comment: this.reviewForm.get('review').value,
         stars: this.reviewForm.get('stars').value,
-        reviewedAt: `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`,
       };
       this.reviewService
         .createReview(body, this.data.userId, this.data.locatableId)
@@ -56,5 +63,29 @@ export class ReviewdialogComponent implements OnInit {
     } else {
       this.notificationService.OpenSnackbar('Please write a correct review');
     }
+  }
+  editReview() {
+    var body = {
+      comment: this.reviewForm.get('review').value,
+      stars: this.reviewForm.get('stars').value,
+    };
+    this.reviewService
+      .updateReview(
+        this.data.review.locatable.id,
+        this.data.review.id,
+        this.data.userId,
+        body
+      )
+      .subscribe(
+        (response) => {
+          this.dialogRef.close();
+          this.notificationService.OpenSnackbar('You edited a review');
+        },
+        (error) => {
+          this.notificationService.OpenSnackbar(
+            'Please write a correct review'
+          );
+        }
+      );
   }
 }

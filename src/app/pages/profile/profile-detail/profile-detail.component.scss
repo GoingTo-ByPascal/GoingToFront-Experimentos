@@ -70,6 +70,16 @@
     h2 {
       text-align: left;
     }
+
+    .reviews {
+      .item {
+        cursor: pointer;
+      }
+      .item:hover {
+        transform: scale(1.05);
+        transition: all 250ms ease;
+      }
+    }
   }
 }
 @media screen and (max-width: 900px) {

@@ -1,0 +1,28 @@
+<div class="left-side-nav-container">
+  <div class="item logo">
+    <img class="logo" src="assets/imgs/logo/logo.png" alt="Tutofinder" />
+  </div>
+  <div
+    class="item"
+    [routerLink]="[item.redirect]"
+    (click)="afterRedirect()"
+    *ngFor="let item of items"
+  >
+    <h2>{{ item.name }}</h2>
+    <mat-icon>{{ item.icon }}</mat-icon>
+  </div>
+
+  <div
+    class="item"
+    *ngIf="logIn"
+    [routerLink]="['profile', profileId]"
+    (click)="afterRedirect()"
+  >
+    <h2>Profile</h2>
+    <mat-icon>face</mat-icon>
+  </div>
+  <div class="item" *ngIf="logIn" (click)="cerarSesion()">
+    <h2>Cerrar Sesión</h2>
+    <mat-icon>logout</mat-icon>
+  </div>
+</div>

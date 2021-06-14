@@ -1,5 +1,5 @@
 .appbar {
-  height: 80px;
+  height: 60px;
   background: #3490de;
   display: flex;
   padding: 0 5% 0 5%;
@@ -90,6 +90,29 @@
       }
       li.menu:hover:after {
         width: 100%;
+      }
+    }
+  }
+}
+.second-appbar {
+  width: 100%;
+  height: auto;
+  background-color: #127dd8;
+}
+
+@media screen and (max-width: 700px) {
+  .appbar {
+    justify-content: center;
+
+    .menu {
+      display: block;
+      ul {
+        li.menu {
+          display: none;
+        }
+        li.dropdown {
+          display: block;
+        }
       }
     }
   }

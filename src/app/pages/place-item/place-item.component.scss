@@ -10,6 +10,17 @@
   h2 {
     text-align: left;
   }
+  .loader {
+    @include center();
+    flex-direction: column;
+    #logo {
+      width: auto;
+      height: auto;
+      animation: rotation 2s;
+      animation-iteration-count: infinite;
+    }
+  }
+
   .countries {
     display: flex;
     flex-direction: column;
@@ -117,5 +128,14 @@
     .item {
       width: 100%;
     }
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

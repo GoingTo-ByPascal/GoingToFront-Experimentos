@@ -1,5 +1,13 @@
 <div class="container">
-  <div class="countries">
+  <div
+    class="loader"
+    *ngIf="countries.length == 0 || cities.length == 0 || places.length == 0"
+  >
+    <img id="logo" src="assets/imgs/logo/icon.png" alt="" />
+    <h2>Loading</h2>
+  </div>
+
+  <div class="countries" *ngIf="countries.length > 0">
     <h2>Countries</h2>
     <div class="list">
       <div class="item" *ngFor="let item of this.countries | slice: 0:3">
@@ -31,7 +39,7 @@
       </div>
     </div>
   </div>
-  <div class="citites">
+  <div class="citites" *ngIf="cities.length > 0">
     <h2>Cities</h2>
     <div class="list">
       <div class="item" *ngFor="let item of this.cities | slice: 0:3">
@@ -64,7 +72,7 @@
     </div>
   </div>
 
-  <div class="places">
+  <div class="places" *ngIf="places.length > 0">
     <h2>Places</h2>
     <div class="list">
       <div class="item" *ngFor="let item of this.places | slice: 0:3">

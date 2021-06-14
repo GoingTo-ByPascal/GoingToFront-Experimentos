@@ -6,11 +6,23 @@
 
   @include title();
   @include center();
+
   flex-direction: column;
   padding: 2%;
   position: relative;
   justify-content: flex-start;
   gap: 1em;
+  .loader {
+    @include subtitle();
+    @include center();
+    flex-direction: column;
+    #logo {
+      width: auto;
+      height: auto;
+      animation: rotation 2s;
+      animation-iteration-count: infinite;
+    }
+  }
   .search-box {
     width: 50%;
     height: 400px;
@@ -196,5 +208,14 @@
   35% {
     -webkit-transform: scale3D(0, 0, 1);
     transform: scale3D(0, 0, 1);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

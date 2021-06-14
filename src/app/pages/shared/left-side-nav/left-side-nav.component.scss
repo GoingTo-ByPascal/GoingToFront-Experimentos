@@ -1,0 +1,52 @@
+@import "src/assets/css/styles.scss";
+.left-side-nav-container {
+  background-color: white;
+  width: 300px;
+
+  .item {
+    margin: 10px 5px 10px 0px;
+    height: 80px;
+    @include subtitle();
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    justify-content: space-between;
+    border: 1px solid;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    transition: all 250ms ease;
+  }
+  .item.logo {
+    background: #3490de;
+    height: 60px;
+
+    align-items: center;
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+    justify-content: center;
+    .logo {
+      width: 50%;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+  .item.logo:hover {
+    background-color: #3490de;
+  }
+  .item:hover {
+    background-color: rgb(214, 214, 214);
+  }
+}
+
+@media screen and(max-width:900) {
+  .left-side-nav-container {
+    background-color: white;
+    width: 180px;
+  }
+}

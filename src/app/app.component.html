@@ -1,16 +1,25 @@
 <head>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVR10F106N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-FVR10F106N"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-  gtag('config', 'G-FVR10F106N');
-</script>
-
+    gtag("config", "G-FVR10F106N");
+  </script>
 </head>
+<mat-drawer-container>
+  <app-appbar (onLeftSideBarActivator)="leftdrawer.toggle()"></app-appbar>
+  <router-outlet></router-outlet>
+  <mat-drawer #leftdrawer class="sidenav" mode="over" position="start">
+    <app-left-side-nav (closeSideNav)="leftdrawer.close()"> </app-left-side-nav>
+  </mat-drawer>
 
-<app-appbar></app-appbar>
-<router-outlet></router-outlet>
-<div class="content"><span>-</span></div>
+  <div class="content"><span>-</span></div>
+</mat-drawer-container>

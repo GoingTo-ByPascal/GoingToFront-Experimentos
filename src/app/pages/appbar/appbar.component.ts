@@ -1,4 +1,10 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostListener,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { faBars, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
@@ -13,7 +19,13 @@ export class AppbarComponent implements OnInit {
     private router: Router,
     public authenticationService: LoginService
   ) {}
+  @Output() onLeftSideBarActivator: EventEmitter<boolean> = new EventEmitter();
+
   faCoffee = faUser;
   isLogged: boolean = false;
   ngOnInit(): void {}
+
+  activeLeftSideNav() {
+    this.onLeftSideBarActivator.emit();
+  }
 }

@@ -24,6 +24,7 @@ import { DialogforsigninComponent } from './pages/dialog/dialogforsignin/dialogf
 import { RouterModule } from '@angular/router';
 import { ProfileDetailComponent } from './pages/profile/profile-detail/profile-detail.component';
 import { ReviewdialogComponent } from './pages/dialog/reviewdialog/reviewdialog.component';
+import { LeftSideNavComponent } from './pages/shared/left-side-nav/left-side-nav.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ReviewdialogComponent } from './pages/dialog/reviewdialog/reviewdialog.
     SubheaderComponent,
     DialogforsigninComponent,
     ReviewdialogComponent,
+    LeftSideNavComponent,
   ],
   imports: [
     BrowserModule,

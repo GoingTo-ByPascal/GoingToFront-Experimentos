@@ -24,7 +24,8 @@ export class ProfileDetailComponent implements OnInit {
     private userService: UserService,
     private reviewService: ReviewService,
     private notificatonService: NotificationService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private userProfileService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -32,16 +33,23 @@ export class ProfileDetailComponent implements OnInit {
   }
   initilize() {
     if (this.authenticationService.loggedIn()) {
-      var userId = this.authenticationService.getUserId();
-      this.userService.getUserInfo(userId).subscribe((response) => {
-        this.userData = response;
-      });
-      this.userService.getUserReviews(userId).subscribe((response) => {
-        this.userReviews = response;
-      });
-      this.userService.getUserAchievements(userId).subscribe((response) => {
-        this.userAchievements = response;
-      });
+      this.userProfileService
+        .getUserInfo(this.authenticationService.getUserId())
+        .subscribe((response) => {
+          var userId = response.id;
+
+          this.userService
+            .getUserInfo(this.authenticationService.getUserId())
+            .subscribe((response) => {
+              this.userData = response;
+            });
+          this.userService.getUserReviews(userId).subscribe((response) => {
+            this.userReviews = response;
+          });
+          this.userService.getUserAchievements(userId).subscribe((response) => {
+            this.userAchievements = response;
+          });
+        });
     }
   }
   showAllReviews() {
@@ -73,9 +81,12 @@ export class ProfileDetailComponent implements OnInit {
       .afterClosed()
       .subscribe(() => {
         this.userService
-          .getUserReviews(this.authenticationService.getUserId())
+          .getUserInfo(this.authenticationService.getUserId())
           .subscribe((response) => {
-            this.userReviews = response;
+            var id = response.id;
+            this.userService.getUserReviews(id).subscribe((response) => {
+              this.userReviews = response;
+            });
           });
       });
   }

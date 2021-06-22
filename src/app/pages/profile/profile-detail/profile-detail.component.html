@@ -2,7 +2,13 @@
   <div class="profile-picture">
     <div class="profile-card mat-elevation-z8">
       <div class="image mat-elevation-z4">
-        <img src="{{ userData?.profilePhoto }}" />
+        <img
+          src="{{
+            userData?.profilePhoto != null
+              ? userData?.profilePhoto
+              : 'https://media.discordapp.net/attachments/708078392376950807/856752797726801930/112815904-no-image-available-icon-flat-vector-illustration.png'
+          }}"
+        />
       </div>
       <hr class="solid" />
 

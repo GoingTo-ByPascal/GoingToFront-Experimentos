@@ -1,8 +1,116 @@
 <div class="register-container">
   <img src="assets/imgs/logo/logo.png" />
 
-  <form [formGroup]="registerForm">
+  <form [formGroup]="registerForm" (onSubmit)="register()">
     <h1>Regístrate</h1>
+    <div class="form-controller">
+      <label>Nombre</label>
+      <div class="form-container">
+        <fa-icon [icon]="faName"></fa-icon>
+        <input
+          id="name"
+          formControlName="name"
+          placeholder="Nombre"
+          type="text"
+        />
+      </div>
+      <p
+        class="error"
+        *ngIf="
+          registerForm.get('name').errors &&
+          (registerForm.get('name').touched || registerForm.get('name').dirty)
+        "
+      >
+        Por favor escriba su nombre
+      </p>
+    </div>
+    <div class="form-controller">
+      <label>Apellido</label>
+      <div class="form-container">
+        <fa-icon [icon]="faLastname"></fa-icon>
+        <input
+          id="name"
+          formControlName="lastname"
+          placeholder="Apellido"
+          type="text"
+        />
+      </div>
+      <p
+        class="error"
+        *ngIf="
+          registerForm.get('lastname').errors &&
+          (registerForm.get('lastname').touched ||
+            registerForm.get('lastname').dirty)
+        "
+      >
+        Por favor su apellido
+      </p>
+    </div>
+    <div class="form-controller">
+      <label>Fecha de nacimiento</label>
+      <div class="form-container">
+        <fa-icon [icon]="faBirth"></fa-icon>
+        <input
+          id="name"
+          formControlName="birthdate"
+          placeholder=""
+          type="date"
+        />
+      </div>
+      <p
+        class="error"
+        *ngIf="
+          registerForm.get('birthdate').errors &&
+          (registerForm.get('birthdate').touched ||
+            registerForm.get('birthdate').dirty)
+        "
+      >
+        Por favor seleccione su fecha de nacimiento
+      </p>
+    </div>
+    <div class="form-controller">
+      <label>Género</label>
+      <div class="form-container">
+        <fa-icon [icon]="faGender"></fa-icon>
+        <select formControlName="gender">
+          <option value="" selected disabled>Elija su género</option>
+          <option value="male">Masculino</option>
+          <option value="female">Femenino</option>
+        </select>
+      </div>
+      <p
+        class="error"
+        *ngIf="
+          registerForm.get('gender').errors &&
+          (registerForm.get('gender').touched ||
+            registerForm.get('gender').dirty)
+        "
+      >
+        Por favor elija su género
+      </p>
+    </div>
+    <div class="form-controller">
+      <label>País</label>
+      <div class="form-container">
+        <fa-icon [icon]="faCountry"></fa-icon>
+        <select formControlName="country">
+          <option value="" selected disabled>Elija su país</option>
+          <option *ngFor="let country of countries" [ngValue]="country">
+            {{ country.fullName }}
+          </option>
+        </select>
+      </div>
+      <p
+        class="error"
+        *ngIf="
+          registerForm.get('country').errors &&
+          (registerForm.get('country').touched ||
+            registerForm.get('country').dirty)
+        "
+      >
+        Por favor elija su país
+      </p>
+    </div>
     <div class="form-controller">
       <label>Email</label>
       <div class="form-container">
@@ -24,27 +132,7 @@
         Por favor ingrese el correo correctamente
       </p>
     </div>
-    <div class="form-controller">
-      <label>Nombre</label>
-      <div class="form-container">
-        <fa-icon [icon]="faName"></fa-icon>
-        <input
-          id="name"
-          formControlName="name"
-          placeholder="Nombre"
-          type="text"
-        />
-      </div>
-      <p
-        class="error"
-        *ngIf="
-          registerForm.get('name').errors &&
-          (registerForm.get('name').touched || registerForm.get('name').dirty)
-        "
-      >
-        Por favor su nombre
-      </p>
-    </div>
+
     <div class="form-controller">
       <label>Contraseña</label>
       <div class="form-container">
@@ -64,44 +152,15 @@
             registerForm.get('password').dirty)
         "
       >
-        Por favor su contraseña
+        Por favor escriba una contraseña
       </p>
     </div>
+
     <div class="form-controller">
-      <label>Repetir Contraseña</label>
-      <div class="form-container">
-        <fa-icon [icon]="faPassword"></fa-icon>
-        <input
-          id="repeatPassword"
-          formControlName="repeatPassword"
-          placeholder="Repetir Contraseña"
-          type="password"
-        />
-      </div>
-      <p
-        class="error"
-        *ngIf="
-          registerForm.get('repeatPassword').errors &&
-          (registerForm.get('repeatPassword').touched ||
-            registerForm.get('repeatPassword').dirty)
-        "
-      >
-        Por favor ingrese su contraseña nuevamente
-      </p>
-      <p
-        class="error"
-        *ngIf="
-          registerForm.get('repeatPassword').value !=
-            registerForm.get('password').value &&
-          (registerForm.get('repeatPassword').touched ||
-            registerForm.get('repeatPassword').dirty)
-        "
-      >
-        Las contraseñas no coinciden
-      </p>
-    </div>
-    <div class="form-controller">
-      <button id="register">Registrarse</button>
+      <button id="register" (click)="register()">
+        <div class="loader" *ngIf="isLoading"></div>
+        <p *ngIf="!isLoading">Registrarse</p>
+      </button>
     </div>
     <div class="form-controller">
       <button (click)="ActivateLogin($event)">Cancelar Registro</button>

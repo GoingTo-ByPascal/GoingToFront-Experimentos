@@ -205,7 +205,6 @@ export class PlaceItemComponent implements OnInit {
   itsIn(locatableId): boolean {
     for (let i = 0; i < this.favoriteByUserId.length; i++) {
       if (this.favoriteByUserId[i].id == locatableId) {
-        console.log('si es favorito');
         return true;
       }
     }

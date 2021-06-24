@@ -5,11 +5,13 @@ import { LocatableDetailComponent } from './pages/explore/locatable-detail/locat
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/search/search.component';
 import { LoginComponent } from './pages/profile/login/login.component';
+import { FavoriteComponent } from './pages/favorite/favorite.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'search', component: SearchComponent },
   { path: 'explore', component: ExploreComponent },
+  { path: 'favorite', component: FavoriteComponent },
   { path: 'locate/:id', component: LocatableDetailComponent },
   { path: '**', redirectTo: '/home' },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

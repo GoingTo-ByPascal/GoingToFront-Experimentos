@@ -22,6 +22,8 @@ import { LocatableDetailComponent } from './pages/explore/locatable-detail/locat
 import { SubheaderComponent } from './pages/subheader/subheader.component';
 import { DialogforsigninComponent } from './pages/dialog/dialogforsignin/dialogforsignin.component';
 import { RouterModule } from '@angular/router';
+import { FavoriteComponent } from './pages/favorite/favorite.component';
+import { FavoriteItemComponent } from './pages/favorite-item/favorite-item.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { RouterModule } from '@angular/router';
     LocatableDetailComponent,
     SubheaderComponent,
     DialogforsigninComponent,
+    FavoriteComponent,
+    FavoriteItemComponent,
   ],
   imports: [
     BrowserModule,

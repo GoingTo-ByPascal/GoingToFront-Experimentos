@@ -13,6 +13,9 @@
       <li class="menu" [routerLink]="['explore']">
         <p>Explore</p>
       </li>
+      <li class="menu" [routerLink]="['favorite']">
+        <p>Favorite</p>
+      </li>
       <li
         class="menu"
         *ngIf="authenticationService.loggedIn()"

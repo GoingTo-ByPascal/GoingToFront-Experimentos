@@ -1,0 +1,17 @@
+<div class="single-achievement mat-elevation-z4">
+  <img src="{{ achievement.badge }}" />
+  <h2
+    matTooltip="{{ achievement.name }}"
+    [matTooltipPosition]="'above'"
+    matTooltipClass="example-tooltip-red"
+  >
+    {{ achievement.name }}
+  </h2>
+  <p
+    matTooltip="{{ achievement.text }}"
+    [matTooltipPosition]="'above'"
+    matTooltipClass="example-tooltip-red"
+  >
+    {{ achievement.text }}
+  </p>
+</div>

@@ -25,12 +25,14 @@ import { RouterModule } from '@angular/router';
 import { ProfileDetailComponent } from './pages/profile/profile-detail/profile-detail.component';
 import { ReviewdialogComponent } from './pages/dialog/reviewdialog/reviewdialog.component';
 import { LeftSideNavComponent } from './pages/shared/left-side-nav/left-side-nav.component';
+import { SingleAchievementComponent } from './pages/profile/profile-detail/single-achievement/single-achievement.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppbarComponent,
     HomeComponent,
+    SingleAchievementComponent,
     ExploreComponent,
     ProfileDetailComponent,
     SearchComponent,

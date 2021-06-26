@@ -57,12 +57,13 @@
       </ng-container>
 
       <button (click)="showAllReviews()">Show all reviews</button>
-
-      <h2>My Achievements</h2>
-      <div class="item" *ngFor="let achievement of userAchievements">
-        <p>{{ achievement.name }}</p>
-        <p>{{ achievement.text }}</p>
-      </div>
+    </div>
+    <h2>My Achievements</h2>
+    <div class="achievements">
+      <app-single-achievement
+        *ngFor="let achievement of userAchievements"
+        [achievement]="achievement"
+      ></app-single-achievement>
     </div>
   </div>
 </div>

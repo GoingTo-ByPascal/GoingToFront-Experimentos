@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,600;1,300&display=swap");
 $buttonColor: #f88585;
 $buttonOnHoverColor: #201aa3;
 @mixin center() {
@@ -150,6 +151,15 @@ $buttonOnHoverColor: #201aa3;
     font-family: "Varela Round", sans-serif;
     font-size: 2.5rem;
     text-align: center;
+  }
+}
+
+@mixin secondSubtitle() {
+  h3 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    text-align: left;
+    font-weight: 5600;
   }
 }
 

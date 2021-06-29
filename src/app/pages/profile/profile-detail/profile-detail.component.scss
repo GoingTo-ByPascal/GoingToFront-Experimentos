@@ -72,8 +72,15 @@
     }
 
     .reviews {
+      @include secondSubtitle();
       .item {
         cursor: pointer;
+        #review-location {
+          font-weight: bold;
+          a {
+            font-weight: normal;
+          }
+        }
       }
       .item:hover {
         transform: scale(1.05);

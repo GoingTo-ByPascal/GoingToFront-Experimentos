@@ -34,6 +34,8 @@
     <h1>Hi I'm {{ userData?.name }}</h1>
     <h2>My Reviews</h2>
     <div class="reviews">
+      <h3>Click to a review for editing</h3>
+
       <ng-container *ngIf="showReviews">
         <div class="item" *ngFor="let review of userReviews">
           <p>
@@ -44,6 +46,9 @@
               {{ review.comment }}
               <app-stars [starsquantity]="review.stars"></app-stars>
             </a>
+          </p>
+          <p id="review-location">
+            Review about: <a>{{ review.locatable.name }}</a>
           </p>
         </div>
       </ng-container>

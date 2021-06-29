@@ -7,7 +7,7 @@
 
 .single-achievement {
   width: 150px;
-  height: 190px;
+  height: 240px;
   background-color: white;
   border: 1px solid;
   padding: 10px;
@@ -27,21 +27,17 @@
   h2 {
     width: 100%;
     height: 25%;
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     text-align: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+
     margin: 0;
   }
   p {
     width: 100%;
     height: 25%;
     margin: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font-size: 1.2rem;
+    font-weight: bold;
+    font-size: 1rem;
   }
 }
 

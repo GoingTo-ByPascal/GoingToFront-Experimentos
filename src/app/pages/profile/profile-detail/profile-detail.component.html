@@ -70,7 +70,7 @@
         [achievement]="achievement"
       ></app-single-achievement>
     </div>
-    <div class="no-achievements">
+    <div class="no-achievements" *ngIf="userAchievements.length <= 0">
       <h3>You have no achievements, try harder!</h3>
       <img src="https://static.poroscience.com/img/poro/poro-sweat.png" />
     </div>

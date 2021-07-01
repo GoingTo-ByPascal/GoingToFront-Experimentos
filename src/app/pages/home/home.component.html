@@ -1,13 +1,18 @@
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FVR10F106N" ></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-FVR10F106N"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-  gtag('config', 'G-FVR10F106N');
-</script>
+    gtag("config", "G-FVR10F106N");
+  </script>
 </head>
 
 <div class="home">
@@ -16,6 +21,23 @@
       <h1>Thanks for letting us be with you on you adventures</h1>
       <h1>Welcome to Going To</h1>
       <button [routerLink]="['/explore']">Explore</button>
+    </div>
+  </div>
+  <div class="info achievements">
+    <div class="left-content">
+      <h2>New Achievements!</h2>
+      <p>
+        You can get new badges for your profile to show them to your friends,
+        they will be jealous.
+      </p>
+      <p>
+        Just travel around the world with GoingTo and share your experiences
+        with us to obtain those fancy badges.
+      </p>
+      <img src="assets/imgs/badges/review_badges_list.png" />
+    </div>
+    <div class="rigth-content">
+      <img src="assets/imgs/badges/badges_promo.png" />
     </div>
   </div>
   <div class="info">

@@ -48,23 +48,26 @@ export class ReviewdialogComponent implements OnInit {
         comment: this.reviewForm.get('review').value,
         stars: this.reviewForm.get('stars').value,
       };
-      this.userService.getUserInfo(this.data.id).subscribe((response: any) => {
-        var id = response.id;
-        console.log(id);
-        this.reviewService
-          .createReview(body, id, this.data.locatableId)
-          .subscribe(
-            (response) => {
-              this.dialogRef.close();
-              this.notificationService.OpenSnackbar('You posted a review');
-            },
-            (error) => {
-              this.notificationService.OpenSnackbar(
-                'Please write a correct review'
-              );
-            }
-          );
-      });
+      console.log(this.data.userId);
+
+      this.userService
+        .getUserInfo(this.data.userId)
+        .subscribe((response: any) => {
+          var id = response.id;
+          this.reviewService
+            .createReview(body, id, this.data.locatableId)
+            .subscribe(
+              (response) => {
+                this.dialogRef.close();
+                this.notificationService.OpenSnackbar('You posted a review');
+              },
+              (error) => {
+                this.notificationService.OpenSnackbar(
+                  'Please write a correct review'
+                );
+              }
+            );
+        });
     } else {
       this.notificationService.OpenSnackbar('Please write a correct review');
     }

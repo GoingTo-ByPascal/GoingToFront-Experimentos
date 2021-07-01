@@ -69,6 +69,41 @@
       }
     }
   }
+  .info.achievements {
+    flex-direction: row;
+    background-color: #a1acbd;
+    height: auto;
+    .left-content {
+      height: auto;
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      h2 {
+        font-size: 4rem;
+      }
+      p {
+        text-align: center;
+      }
+      flex-direction: column;
+      img {
+        width: 350px;
+      }
+    }
+    .rigth-content {
+      height: 100%;
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 90%;
+      }
+    }
+    h2 {
+      font-size: 3rem;
+    }
+  }
   .social {
     width: 100%;
     height: auto;
@@ -147,6 +182,30 @@
           max-width: 100%;
           height: 200px;
           border-radius: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .home {
+    .info.achievements {
+      flex-direction: column;
+      .left-content {
+        h2 {
+          font-size: 2rem;
+        }
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+      .rigth-content {
+        width: 100%;
+        img {
+          width: 100%;
+          height: auto;
         }
       }
     }

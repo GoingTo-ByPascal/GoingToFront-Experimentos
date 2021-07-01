@@ -64,11 +64,15 @@
       <button (click)="showAllReviews()">Show all reviews</button>
     </div>
     <h2>My Achievements</h2>
-    <div class="achievements">
+    <div class="achievements" *ngIf="userAchievements.length > 0">
       <app-single-achievement
         *ngFor="let achievement of userAchievements"
         [achievement]="achievement"
       ></app-single-achievement>
+    </div>
+    <div class="no-achievements">
+      <h3>You have no achievements, try harder!</h3>
+      <img src="https://static.poroscience.com/img/poro/poro-sweat.png" />
     </div>
   </div>
 </div>
